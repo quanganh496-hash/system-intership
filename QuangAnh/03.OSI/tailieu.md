@@ -1,6 +1,6 @@
 # 1. Mô hình OSI là gì
 Mô hình OSI là một mô hình tham chiếu mạng do ISO (Tổ chức Tiêu chuẩn hóa Quốc tế) phát triển, chia giao tiếp mạng thành 7 tầng, giúp tiêu chuẩn hóa cách thiết bị giao tiếp trong một hệ thống mạng.Mỗi tầng giải quyết một vấn đề hẹp của tiến trình truyền thông . Mô hình này có nhiệm vụ thiết lập kết nối truyền thông và thiết kế giao thức mạng giữa các máy tính 
-![alt text](image-2.png)
+![alt text](image-3.png)
 ## 2. Các tầng của mô hình OSI
 Mô hình OSI bao gồm 7 tầng
 Tầng 1 đến 4 có nhiệm vụ di chuyển dữ liệu
@@ -57,14 +57,20 @@ Tầng ứng dụng là tầng gần với người sử dụng nhất. Nó cung
 
 ### 3. Workflow khi A gửi dữ liệu cho B theo OSI
 Giả sử A gửi email cho B:
-- Tầng 1 (Application): A soạn email và gửi.
-- Tầng 2 (Presentation): Dữ liệu được mã hóa (SSL, TLS nếu có).
-- Tầng 3 (Session): Phiên giao tiếp giữa A và B được thiết lập.
-- Tầng 4 (Transport): Dữ liệu được chia thành segment. TCP đảm bảo không mất dữ liệu.
-- Tầng 5 (Network): Gắn địa chỉ IP của B, định tuyến.
-- Tầng 6 (Data Link): Gắn địa chỉ MAC, đóng gói khung dữ liệu.
-- Tầng 7 (Physical): Bit được truyền qua dây/cáp mạng.
-Bên phía B nhận dữ liệu và xử lý ngược lại từ tầng 7 → 1.
+- Bước 1: Khi thiết bị A gửi dữ liệu đến thiết bị B qua mạng bằng HTTP, một HTTP header được thêm vào lớp ứng dụng.
+- Bước 2: TCP header hoặc UDP header được thêm vào dữ liệu. Nó được đóng gói thành TCP segments ở lớp Transport. Header này chứa cổng nguồn, cổng đích, và số thứ tự.
+ 
+ Chia thành cách segment: Dữ liệu từ tầng ứng dụng thường có kích thước lớn, việc chia nhỏ dữ liệu thành các segment giúp quản lý việc truyền tải hiệu quả hơn. Nếu một segment bị lỗi hoặc mất, chỉ cần gửi lại segment đó thay vì toàn bộ dữ liệu. Việc này phù hợp với giới hạn kích thước gói tin (MTU - Maximum Transmission Unit) mà tầng Network có thể xử lý.
+Gắn số cổng nguồn và cổng đích: Mỗi ứng dụng trên thiết bị gửi/nhận đều sử dụng một cổng (port) để giao tiếp. Số cổng nguồn cho biết ứng dụng nào trên thiết bị gửi tạo ra dữ liệu, và số cổng đích xác định ứng dụng nào trên thiết bị nhận sẽ xử lý dữ liệu.
+- Bước 3: Sau đó, các segments được đóng gói bằng một IP header tại lớp Network. IP header chứa địa chỉ IP nguồn và đích.
+Đóng gói segment: Tầng network cần thêm thông tin như địa chỉ IP nguồn và đích để định tuyến gói tin qua các mạng khác nhau (Gói hóa - encapsulation).
+Địa chỉ IP nguồn và đích: xác định vị trí logic của thiết bị trên mạng. Địa chỉ này đảm bảo gói tin có thể đến đúng đích qua các mạng trung gian. IP nguồn cho biết gói tin xuất phát từ đâu để thiết bị nhận có thể phản hồi lại nếu cần. IP đích xác định thiết bị nhận, giúp các router biết các gói tin cần được chuyển đến đâu.
+- Bước 4: Tại tầng Data Link, MAC header được thêm vào gói dữ liệu IP (IP datagram). MAC header chứa địa chỉ MAC nguồn và đích. Tầng này đóng gói gói tin thành khung dữ liệu (frame).
+Đóng gói packet thành khung: Thêm các thông tin cần thiết để truyền dữ liệu qua mạng cục bộ (LAN), như địa chỉ MAC nguồn/đích, kiểm tra lỗi (CRC), và các thông tin khác. Khung dữ liệu là đơn vụ truyền tải cơ bản trong mạng LAN.
+Địa chỉ MAC xác định thiết bị vật lý trong mạng LAN, không phụ thuộc vào địa chỉ IP. MAC nguồn cho biết thiết bị nào trong mạng gửi dữ liệu, MAC đích xác định thiết bị nào nhận dữ liệu. Địa chỉ MAC cần thiết để các switch hoặc thiết bị mạng định tuyến dữ liệu đến đúng thiết bị đích
+- Bước 5: Tại lớp Physical, frame được gửi qua mạng dưới dạng luồng bit.
+- Bước 6-10: Khi thiết bị B nhận được các bit từ mạng, nó sẽ khởi tạo quy trình giải đóng gói, ngược lại với quy trình đóng gói. Các header dần được loại bỏ qua từng lớp cho đến khi thiết bị B có thể truy cập dữ liệu gốc.
+![alt text](image-4.png)
  
  ** Danh mục tài liệu tham khảo **
 
