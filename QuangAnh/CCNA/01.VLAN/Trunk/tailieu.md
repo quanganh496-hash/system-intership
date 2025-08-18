@@ -6,10 +6,10 @@
 💡 Nói đơn giản: Nếu VLAN là “phòng” và switch là “tòa nhà”, thì trunk giống như cầu thang chung nối các tòa nhà, nhưng mỗi người đi trên cầu thang vẫn đeo “thẻ phòng” để biết mình thuộc phòng nào.
 ## 2. Chuẩn IEEE 802.1Q (DOT1Q)
 - Giống như ISL, 802.1Q là một giao thức cho phép một liên kết vật lý có thể thực hiện mang lưu lượng của nhiều VLAN. Đây là tiêu chuẩn VLAN trunking protocol của IEEE. Thay vì đóng gói các frame lớp 2 ban đầu, 802.1Q chèn một thẻ vào header Ethernet, sau đó tính toán lại và cập nhật các FCS trong frame nguồn và truyền qua liên kết trunk.
-![alt text](image.png)
+![alt text](./images/image.png)
 
 - IEEE 802.1Q là một chuẩn chung dùng để nhận dạng các VLAN được truyền qua đường trung kế, nó hoạt động trong môi trường Ethernet và là một chuẩn mở. Là giao thức dùng gán nhãn frame khi truyền frame trên đường trung kế giữa hai Switch hay giữa Switch và Router, việc gán nhãn frame được thực hiện bằng cách thêm thông tin VLAN ID vào phần giữa header trước khi frame được truyền lên đường trung kế
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 **Cách hoạt động**:
 - Thêm một thẻ (tag VLAN) vào gói tin Ethernet để xác định VLAN mà nó thuộc về.
 - Kích thước tag VLAN: 4 byte (32 bit) được chèn vào giữa phần Header và Payload của gói tin Ethernet.
@@ -27,7 +27,7 @@ Ví dụ VLAN Tagging với 802.1Q:
 
 - Gói tin từ VLAN 10 khi truyền qua Trunk Port sẽ được thêm Tag VLAN 10. Switch nhận được gói tin sẽ đọc tag này để biết nó thuộc VLAN nào.
 ### 3.Access port và Trunk port
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 Access port (Cổng truy nhập) trong mạng máy tính, đặc biệt là trên switch, là loại cổng được cấu hình để chỉ thuộc về một VLAN duy nhất và thường được dùng để kết nối với các thiết bị cuối như máy tính, máy in, camera IP...
 - Chỉ thuộc về một VLAN: Tất cả lưu lượng đi qua cổng sẽ được gán vào VLAN đó.
 - Không gắn thẻ VLAN (untagged): Frame Ethernet gửi ra từ access port không chứa thẻ VLAN 802.1Q. Switch **tự động gán VLAN ID** tương ứng với cấu hình của cổng.
@@ -44,7 +44,7 @@ Khi gửi frame ra khỏi access port, switch bỏ **VLAN tag** để thiết b�
 
 #### 4. VTP
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 VTP domain (hay còn được gọi là VLAN managerment domain) bao gồm 1 SW hoặc một vài SW kết nối với nhau với nhiệm vụ quản trị 1 VTP domain name. 1 SW chỉ có thể nằm trong 1 VTP domain.
 

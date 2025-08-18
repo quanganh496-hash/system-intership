@@ -1,7 +1,9 @@
 # 1.Khái niệm VLAN
 - VLAN (Virtual Local Area Network) là một kỹ thuật cho phép chia một mạng LAN vật lý thành các mạng logic riêng biệt, được gọi là các VLAN. Chúng hoạt động độc lập với nhau, ngay cả khi các thiết bị được kết nối vào cùng một switch (bộ chuyển mạch).
-![alt text](image.png)
+
+![alt text](./images/image.png)
 Hiểu đơn giản:
+
 VLAN giống như chia lớp học chung thành các nhóm riêng để học các môn khác nhau, dù đang ngồi chung một phòng.
 Thiết bị trong cùng VLAN có thể giao tiếp trực tiếp với nhau, còn nếu khác VLAN thì phải thông qua thiết bị định tuyến (Router).
 ## 2.Tại sao cần chia VLAN
@@ -39,12 +41,12 @@ Mạng VLAN hoạt động bằng cách chia một mạng vật lý thành các 
 
 - Gán cổng và cổng trừu tượng: Các cổng trên switch được gán cho từng mạng VLAN cụ thể. Cổng này có thể là cổng vật lý hoặc cổng trừu tượng (port-based VLANs). Các thiết bị trong cùng một VLAN có thể giao tiếp trực tiếp với nhau và hạn chế giao tiếp với các thiết bị ở VLAN khác.
 
-- Access Ports và Trunk Ports: Trong mạng VLAN, có hai loại cổng quan trọng: access ports và trunk ports. Cổng Access ports được gán cho một VLAN cụ thể, trong khi cổng trunk được sử dụng để chuyển dữ liệu giữa các switch và giữa các mạng VLAN.
+- Access Ports và Trunk Ports: Trong mạng VLAN, có hai loại cổng quan trọng: access ports và trunk ports. Cổng Access ports được gán cho một VLAN cụ thể (thiết bị cuối)  trong khi cổng trunk được sử dụng để chuyển dữ liệu giữa các switch và giữa các mạng VLAN.
 
 - Tagging và Untagging: Khi dữ liệu đi qua cổng trunk, thông tin về VLAN ID thường được thêm vào gói tin (tagging). Ngược lại, khi dữ liệu rời khỏi mạng VLAN, thông tin này có thể được loại bỏ (untagging).
 
 - Tạo Broadcast Domains: Mỗi VLAN tạo ra một broadcast domain độc lập, giảm thiểu lưu lượng broadcast trên mạng và cải thiện hiệu suất.
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 **Chi tiết về cách VLAN hoạt động**
 - Gửi khung Ethernet: Khi một thiết bị gửi khung Ethernet, nó sẽ thêm mã VLAN vào khung. Mã VLAN này xác định VLAN mà khung Ethernet thuộc về.
 - Chuyển khung đến Switch: Khung Ethernet được truyền qua cáp đến Switch.
