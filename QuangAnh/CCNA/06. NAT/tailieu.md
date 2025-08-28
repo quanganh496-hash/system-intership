@@ -1,7 +1,7 @@
 # .01 NAT là gì?
 NAT (Network Address Translation) là cơ chế dịch địa chỉ mạng được sử dụng trong các thiết bị mạng (thường là router hoặc firewall) để chuyển đổi địa chỉ IP riêng (private IP) trong mạng LAN thành địa chỉ IP công cộng (public IP) khi truy cập Internet, và ngược lại.
 
-![alt text](1.jpg)
+![alt text](./images/1.jpg)
 **Mục đích của NAT**
 
 - 1.Chia sẻ kết nối Internet
@@ -87,7 +87,7 @@ Khi gói tin trả về từ Internet:
 
 
 
-![alt text](<Ảnh màn hình 2025-08-28 lúc 14.28.28.png>)
+![alt text](./images/image.png)`
 
 
 #### 4. Hạn chế của NAT là gì?
