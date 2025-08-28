@@ -23,16 +23,13 @@ Khi dữ liệu từ máy tính A đến Router nó sẽ phân tích và quyết
 - Đây là cấu trúc dữ liệu trong mỗi router, liệt kê các mạng đích đã biết và cách để đến chúng. Với mỗi tiền tố đích, bảng định tuyến chứa địa chỉ next-hop hoặc giao diện đi ra. Router sử dụng longest-prefix match để chọn đường đi cụ thể nhất
 - Bao gồm các thông tin như địa chỉ mạng đích, cổng ra (interface), và metric (độ đo để so sánh các đường đi).
 
-| Network Destination | Subnet Mask   | Next Hop / Outgoing Interface | Metric |
-| ------------------- | ------------- | ----------------------------- | ------ |
-| 192.168.1.0         | 255.255.255.0 | Directly Connected (G0/0)     | 0      |
-| 192.168.2.0         | 255.255.255.0 | 192.168.12.2                  | 1      |
-| 0.0.0.0             | 0.0.0.0       | 192.168.1.1 (Default Gateway) | 1      |
+| Destination | Mask          | Next-hop    | Interface | Metric |
+| ----------- | ------------- | ----------- | --------- | ------ |
+| 192.168.1.0 | 255.255.255.0 | 192.168.2.2 | G0/0      | 1      |
+| 192.168.2.0 | 255.255.255.0 | Directly    | G0/1      | 0      |
+| 0.0.0.0     | 0.0.0.0       | 192.168.2.1 | G0/1      | 10     |
 
-- Directly connected: mạng gắn trực tiếp vào Router.
-- Static route: được quản trị viên cấu hình thủ công.
-- Dynamic route: học được từ các giao thức định tuyến.
-- Default route (0.0.0.0/0): đường đi mặc định nếu không tìm thấy trong bảng định tuyến.
+
 
  **Next Hop**:
 - Next hop là router hoặc giao diện lân cận ngay lập tức mà gói tin sẽ được gửi tới. Router xác định next-hop từ bảng định tuyến, sau đó đóng gói (nếu cần) và chuyển tiếp gói tin đến đó, đưa nó đến gần đích hơn (nguồn: jumpcloud.com).
