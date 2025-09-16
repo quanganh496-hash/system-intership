@@ -1,11 +1,11 @@
 # 1. Mô hình OSI là gì
 Mô hình OSI là một mô hình tham chiếu mạng do ISO (Tổ chức Tiêu chuẩn hóa Quốc tế) phát triển, chia giao tiếp mạng thành 7 tầng, giúp tiêu chuẩn hóa cách thiết bị giao tiếp trong một hệ thống mạng.Mỗi tầng giải quyết một vấn đề hẹp của tiến trình truyền thông . Mô hình này có nhiệm vụ thiết lập kết nối truyền thông và thiết kế giao thức mạng giữa các máy tính 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 ## 2. Các tầng của mô hình OSI
 Mô hình OSI bao gồm 7 tầng
 Tầng 1 đến 4 có nhiệm vụ di chuyển dữ liệu
 Từ tầng 5 – 7 thực hiện nhiệm vụ chuyển tiếp dữ liệu và các nhiệm vụ đặc thù khác 
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 ## 2.1 Tầng vật lý (Physical Layer)
 - Tầng vật lý định nghĩa tất cả các đặc tả về điện và vật lý cho các thiết bị, bao gồm các thiết bị phần cứng thực hiện chức năng truyền tải dữ liệu như Router, cáp , phích cắm, nguồn điện
 - Có nhiệm vụ ứng đối với các đòi hỏi về dịch vụ từ tầng liên kết dữ liệu, thiết lập hoặc ngắt kết nối điện với một phương tiện truyền thông
@@ -70,7 +70,7 @@ Gắn số cổng nguồn và cổng đích: Mỗi ứng dụng trên thiết b�
 Địa chỉ MAC xác định thiết bị vật lý trong mạng LAN, không phụ thuộc vào địa chỉ IP. MAC nguồn cho biết thiết bị nào trong mạng gửi dữ liệu, MAC đích xác định thiết bị nào nhận dữ liệu. Địa chỉ MAC cần thiết để các switch hoặc thiết bị mạng định tuyến dữ liệu đến đúng thiết bị đích
 - Bước 5: Tại lớp Physical, frame được gửi qua mạng dưới dạng luồng bit.
 - Bước 6-10: Khi thiết bị B nhận được các bit từ mạng, nó sẽ khởi tạo quy trình giải đóng gói, ngược lại với quy trình đóng gói. Các header dần được loại bỏ qua từng lớp cho đến khi thiết bị B có thể truy cập dữ liệu gốc.
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
  
  ** Danh mục tài liệu tham khảo **
 

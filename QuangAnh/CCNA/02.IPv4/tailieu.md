@@ -14,7 +14,7 @@ Ví dụ địa chỉ IPv4: 192.168.1.1 = 11000000.10101000.00000001.00000001
 Địa chỉ IPv4 gồm 2 phần:
 - Network ID (Net ID): định danh mạng.
 - Host ID: định danh thiết bị trong mạng đó.
-![alt text](image.png)
+![alt text](./images/image.png)
 
 Phân tách NetID và HostID dựa trên subnet mask.
 # 5. Các lớp địa chỉ IPv4
@@ -34,7 +34,7 @@ Phân tách NetID và HostID dựa trên subnet mask.
 
 ### **Khác biệt giữa IP Public và IP Private**
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 
 
