@@ -7,7 +7,7 @@ Mô hình TCP/IP (Transmission Control Protocol / Internet Protocol) là mô hì
 - Tầng 3: Tầng giao vận (Transport)
 - Tầng 4: Tầng ứng dụng (Application).
 Cung cấp chuẩn để các thiết bị mạng giao tiếp với nhau qua nhiều loại mạng khác nhau.
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 ## 2. Các Layer của Mô hình TCP/IP
 2.1 Mô hình TCP/IP có 4 lớp, mỗi lớp đảm nhiệm vai trò riêng:
 | Lớp TCP/IP | Tên gọi                                    | Chức năng chính                                                                    | Tương đương OSI                                 |
@@ -17,7 +17,7 @@ Cung cấp chuẩn để các thiết bị mạng giao tiếp với nhau qua nhi
 | 3️       | **Transport Layer**                        | Đảm bảo **giao tiếp đầu cuối**, kiểm soát lỗi, kiểm soát luồng, dùng TCP hoặc UDP. | Tầng 4 (Transport)                              |
 | 4️       | **Application Layer**                      | Cung cấp dịch vụ ứng dụng như HTTP, FTP, SMTP...                                   | Tầng 5-6-7 (Session, Presentation, Application) |
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 
  2.2 Chi tiết từng lớp:
 1. Network Access Layer
@@ -50,7 +50,7 @@ Tầng cao nhất người dùng tương tác.
 | Giao thức cụ thể        | Không                     | Có (TCP, IP, HTTP, SMTP...)           |
 | Ứng dụng                | Giảng dạy, lý thuyết      | Triển khai thực tế                    |
 
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 #### 4. Workflow với mô hình TCP/IP
  Khi máy A gửi dữ liệu đến máy B, các bước như sau:
 
@@ -101,7 +101,7 @@ Tầng cao nhất người dùng tương tác.
 
 **Ứng dụng**: sử dụng trong các tình huống cần truyền tải chính xác dữ liệu, chẳng hạn: tải file, duyệt web, gửi email.
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 - Bước 1: Ở bước đầu tiên, máy khách sẽ thiết lập kết nối với máy chủ. Nó gửi một phân đoạn có SYN và thông báo cho máy chủ về việc máy khách sẽ bắt đầu liên lạc và số thứ tự của nó sẽ là gì.
 - Bước 2: Ở bước này server phản hồi yêu cầu của khách hàng bằng bộ tín hiệu SYN-ACK. ACK giúp bạn biểu thị phản hồi của phân đoạn được nhận và SYN biểu thị số thứ tự nào nó có thể bắt đầu với các phân đoạn.
