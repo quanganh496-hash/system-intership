@@ -14,6 +14,7 @@ Ví dụ địa chỉ IPv4: 192.168.1.1 = 11000000.10101000.00000001.00000001
 Địa chỉ IPv4 gồm 2 phần:
 - Network ID (Net ID): định danh mạng.
 - Host ID: định danh thiết bị trong mạng đó.
+
 ![alt text](./images/image.png)
 
 Phân tách NetID và HostID dựa trên subnet mask.

@@ -62,6 +62,7 @@ Router(config)# ip route (network-address) (subnet-mask) (next-hop ip address/ e
 - Được dùng phổ biến trong mạng vừa và lớn (nguồn: aws.amazon.com).
 
 ➡️ Trên thực tế, người ta thường kết hợp cả hai. Ví dụ: doanh nghiệp nhỏ dùng static default route đến ISP, nhưng trong nội bộ dùng giao thức động.
+
 ![alt text](image.png)
 
 

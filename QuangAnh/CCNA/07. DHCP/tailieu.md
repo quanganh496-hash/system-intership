@@ -4,6 +4,7 @@
 DHCP (Dynamic Host Configuration Protocol) là một giao thức mạng cho phép tự động cấp phát địa chỉ IP và các thông số mạng khác (như subnet mask, default gateway, DNS server...) cho các thiết bị trong mạng một cách tự động thay vì cấu hình thủ công.Quá trình này giúp cho việc quản lý địa chỉ IP trên mạng trở nên dễ dàng và hiệu quả hơn, đồng thời giảm thiểu lỗi do cấu hình địa chỉ IP sai hoặc trùng lặp trên mạng.
 
 DHCP là một giao thức mạng phổ biến được sử dụng trong hầu hết mạng LAN (Local Area Network) và WAN (Wide Area Network).
+
 ![alt text](image.png)
 
 ## 2. Chức năng chính của DHCP:
@@ -36,7 +37,9 @@ Có thể chia thành:
 - Manual allocation / Static binding (gắn cố định IP theo MAC address).
 
 #### 4.Cách hoạt động của DHCP
+
 ![alt text](image-1.png)
+
  DHCP hoạt động theo cơ chế trao đổi thông tin giữa máy khách và máy chủ DHCP, trong đó máy chủ DHCP cung cấp thông tin cấu hình mạng cho những máy khách.
 1. Khi một thiết bị kết nối vào mạng, nó sẽ gửi một yêu cầu DHCP thông qua gói tin broadcast đến tất cả máy chủ DHCP có sẵn trên mạng. Gói tin yêu cầu(DHCPDISCOVER) này chứa thông tin về **việc yêu cầu cấu hình mạng**, bao gồm **địa chỉ MAC (Media Access Control)** duy nhất của thiết bị để máy chủ DHCP có thể nhận diện và phân biệt thiết bị này với các thiết bị khác trên mạng.
 

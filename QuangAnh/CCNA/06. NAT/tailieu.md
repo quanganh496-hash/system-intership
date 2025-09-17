@@ -2,6 +2,7 @@
 NAT (Network Address Translation) là cơ chế dịch địa chỉ mạng được sử dụng trong các thiết bị mạng (thường là router hoặc firewall) để chuyển đổi địa chỉ IP riêng (private IP) trong mạng LAN thành địa chỉ IP công cộng (public IP) khi truy cập Internet, và ngược lại.
 
 ![alt text](./images/1.jpg)
+
 **Mục đích của NAT**
 
 - 1.Chia sẻ kết nối Internet
