@@ -74,7 +74,9 @@ Gắn số cổng nguồn và cổng đích: Mỗi ứng dụng trên thiết b�
 Địa chỉ MAC xác định thiết bị vật lý trong mạng LAN, không phụ thuộc vào địa chỉ IP. MAC nguồn cho biết thiết bị nào trong mạng gửi dữ liệu, MAC đích xác định thiết bị nào nhận dữ liệu. Địa chỉ MAC cần thiết để các switch hoặc thiết bị mạng định tuyến dữ liệu đến đúng thiết bị đích
 - Bước 5: Tại lớp Physical, frame được gửi qua mạng dưới dạng luồng bit.
 - Bước 6-10: Khi thiết bị B nhận được các bit từ mạng, nó sẽ khởi tạo quy trình giải đóng gói, ngược lại với quy trình đóng gói. Các header dần được loại bỏ qua từng lớp cho đến khi thiết bị B có thể truy cập dữ liệu gốc.
-![alt text](./images/image-4.png)
+
+![alt text](image_2025-09-18_14-43-20.png)
+
  
  ** Danh mục tài liệu tham khảo **
 

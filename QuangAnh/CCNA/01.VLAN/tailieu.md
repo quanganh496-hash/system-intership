@@ -114,4 +114,6 @@ Tự động hóa, giảm cấu hình thủ công.
 | Dynamic VLAN        | MAC, IP, User ID | Linh hoạt, tự động      | Cần server, cấu hình phức tạp | Doanh nghiệp lớn      |
 | Protocol-based VLAN | Loại giao thức   | Phân loại theo protocol | Ít phổ biến                   | Mạng hỗn hợp protocol |
 
+**tham khảo**:
 
+https://cnttshop.vn/docs/broadcast-domains-la-gi-tong-quan-ve-broadcast-domain
