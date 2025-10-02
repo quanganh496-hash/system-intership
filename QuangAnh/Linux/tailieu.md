@@ -98,6 +98,8 @@ Linux là từ chỉ phần hạt nhân, còn Linux distro mới thực sự là
 
 ### 3. Phân loại Disco Linux
 
+![alt text](distro_group.png)
+
 - Dành cho cá nhân: Một số bản distro nổi bật gồm Linux Mint, Arch Linux, Fedora, Ubuntu, CentOS, và openSUSE.
 
 - Dành cho máy chủ: Ubuntu Server, CentOS, Red Hat Enterprise Linux và SUSE Enterprise Linux.
@@ -248,8 +250,180 @@ chữ hoa.
 - Mỗi user có thể thuộc về nhiều nhóm.
 - Tài khoản superuser có uid = gid = 0.
 
-Quản trị Group
+## . File /etc/passwd
+- Là file văn bản chứa thông tin về các tài khoản user trên máy. Mọi user đều có thể đọc tập tin này nhưng chỉ có
+root mới có quyền thay đổi.
+- Để xem nội dung của file ta dùng lệnh:
 
-- Nhóm là tập hợp của nhiều user. Mỗi nhóm có tên duy nhất,
-và có một mã định danh duy nhất (gid). Khi tạo một user
-(không dùng option -g) thì mặc định một group được tạo ra.
+      #cat /etc/passwd
+
+- Cấu trúc của file gồm nhiều hàng, mỗi hàng là thông tin của 1 user. Dòng đầu tiên của tập tin mô tả thông tin cho user root (có ID = 0), tiếp theo là các tài khoản khác của hệ thống, cuối cùng là các tài khoản người dùng thường. Mỗi hàng được chia làm 7 cột cách nhau bằng
+dấu “:”.
+
+![alt text](image-1.png)
+
+## . File /etc/shawdown
+- Là tập tin văn bản chứa thông tin về mật khẩu của các
+tài khoản user trên máy. Chỉ có root mới có quyền đọc
+tập tin này. User root có quyền reset mật khẩu của bất
+kỳ user nào trên máy.
+- Mỗi dòng trong tập tin chứa thông tin về mật khẩu của
+user, định dạng của dòng gồm nhiều cột giá trị, dấu “:”
+được sử dụng để phân cách các cột.
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+## . Các lệnh quản lý User
+### Tạo, sửa, xóa user
+- Lệnh useradd: Tạo tài khoản user.
+Cấu trúc lệnh:
+
+      useradd [Options] login_name
+
+- Options:
+
+-m : đồng thời tạo thư mục ở home
+
+-d : tên thư mục tạo ở home
+
+-c : thêm mô tả về thư mục đó
+
+- Lệnh usermod: Sửa thông tin tài khoản.
+
+- options
+
+-G: Thêm user vào group
+
+-c : thay đổi thông tin người dùng
+
+-e : thiết lập ngày hết hạn cho người dùng
+
+-L : Khóa tài khoản
+
+-U : mở khóa tài khoản
+
+-s : thay đổi shell script cho user
+
+Cấu trúc lệnh:
+
+     usermod [Options] login_name
+
+- Lệnh userdel: Xóa tài khoản user
+
+Cấu trúc lệnh:
+
+     userdel [Options] login_name
+
+- Options:
+
+-m : dùng để xóa user
+
+-r : xóa user đồng thời xóa cả file mà user đó tạo ra
+
+- Lệnh chage: Dùng để thiết lập các chính sách (policy) cho
+user.
+
+Cấu trúc lệnh:
+
+     chage [options] login_name
+
+
+Ta có thể tạo hoặc thay đổi password cho user bằng lệnh “passwd”. Chỉ có quyền root mới có thể thực hiện việc này.
+
+     passwd [user-name]
+
+### Chuyển đổi user
+Khi ta muốn chuyển từ user này sang user khác ta có thể sử dụng lệnh “su” hoặc “sudo su”
+
+      sudo su [user-name]
+
+# Quản trị Group
+
+- Group là một nhóm tập hợp các user.
+- Mỗi group có 1 tên duy nhất và 1 mã định danh duy nhất (gid).
+- Khi tạo ra 1 user ( không dùng option -g ) thì mặc định 1 group mang tên user được tạo ra.
+
+## . File /etc/group:
+Là tập tin văn bản chứa thông tin về nhóm user trên máy.
+Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới
+có quyền thay đổi.
+
+![alt text](image-4.png)
+
+Mỗi dòng trong tập tin chứa thông tin về các nhóm user
+trên máy, định dạng của dòng gồm nhiều cột giá trị, dấu
+“:” được sử dụng để phân cách các cột.
+Ý nghĩa các cột giá trị như sau:
+
+![alt text](image-5.png)
+
+## . Các lệnh quản lý group
+- Lệnh groupadd: Tạo nhóm
+
+Cấu trúc lệnh:
+
+     groupadd  [group_name]
+
+Để tạo mật khẩu cho group ta sử dụng lệnh “gpasswd”.
+
+     gpasswd [group_name]
+
+- Lệnh groupmod: Sửa thông tin nhóm
+
+Cấu trúc lệnh:
+
+     groupmod [options] [group_name]
+
+- Options
+
+-g [gid] : sửa lại mã nhóm ( gid )
+
+-n [group_name] : sửa lại tên group
+
+- Lệnh groupdel: dùng để xóa nhóm
+
+Cấu trúc lệnh:
+
+      groupdel [group_name]
+
+# . Các quyền quản lý trong linux
+Trên thực tế mọi tập tin sẽ đều có chủ sở hữu, nó sẽ bao gồm user và group sở hữu tập tin đó.
+Ta có thể sử dụng lệnh “ls -lh” để xem.
+
+![alt text](<Ảnh màn hình 2025-10-02 lúc 16.02.56-1.png>)
+
+##  Các quyền của file
+
+![alt text](<Ảnh màn hình 2025-10-02 lúc 16.04.23.png>)
+
+## Các lệnh thay đổi quyền của file
+![alt text](3.avif)
+
+- Ta nhận thấy rằng mỗi file sẽ quy định quyền cho 3 chủ thể là: user, group và other (user khác) được sắp xếp theo đúng thứ tự trên.
+
+Ví dụ: file ssh_config thì chủ sở hữu file có quyền đọc và sửa, đối với group và other chỉ có quyền đọc.
+
+Để thay đổi chủ sở hữu file ta dùng lệnh “chown”
+
+     hown [tên user mới] [tên file]
+
+Để thay đổi group mới của file ta có dùng lệnh “chgrp”
+
+     chgrp [tên group mới] [tên file]
+
+Để có thể thay đổi các quyền của file ta có thể sử dụng lệnh “chmod”
+
+     chmod [u/g/o][+/-][r/w/x] [tên file]
+
+# . Một số lưu ý cần nhớ
+- Chỉ có quyền root mới có thể thực hiện câu lệnh “su”, còn các user khác muốn thực lệnh “su” thì đều cần quyền sudo.
+- Sự khác biệt giữa “su” và “su -”
+- Lệnh “su” sẽ giúp chúng ta chuyển đổi user mà vẫn giữ nguyên vị trí đang đứng trước đó.
+Lệnh “su -” sẽ giúp chúng ta chuyển đổi user và đưa luôn chúng ta đến vị trí thư mục “/home/” của user đó.
+- Theo mặc định khi tạo ra các user thì nó sẽ không có quyền sudo nếu muốn user có quyền sudo thì phải thêm user đó vào group “wheel” đối với CentOS và group “sudo” đối với Ubuntu. Chỉ có quyền root mới có thể thực hiện điều này.
+
+https://suncloud.vn/quan-ly-nguoi-dung-user-va-nhom-group-trong-linux
+
+https://github.com/nhanhoadocs/thuctapsinh/blob/master/HaiDD/Linux/LinuxOverview.md
