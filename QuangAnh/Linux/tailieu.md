@@ -392,11 +392,11 @@ Cấu trúc lệnh:
 Trên thực tế mọi tập tin sẽ đều có chủ sở hữu, nó sẽ bao gồm user và group sở hữu tập tin đó.
 Ta có thể sử dụng lệnh “ls -lh” để xem.
 
-![alt text](<Ảnh màn hình 2025-10-02 lúc 16.02.56-1.png>)
+![alt text](image-6.png)
 
 ##  Các quyền của file
 
-![alt text](<Ảnh màn hình 2025-10-02 lúc 16.04.23.png>)
+![alt text](image-8.png)
 
 ## Các lệnh thay đổi quyền của file
 ![alt text](3.avif)
