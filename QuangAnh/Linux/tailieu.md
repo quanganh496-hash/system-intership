@@ -96,6 +96,23 @@ Ngoài nhân Linux, một Linux distro có thể bao gồm các thành phần nh
 
 Linux là từ chỉ phần hạt nhân, còn Linux distro mới thực sự là một hệ điều hành. Tên gọi đúng hơn của các Linux distro là “hệ điều hành dựa trên Linux”.
 
+Lớp lõi (Core) – Trung tâm của hệ thống:
+
+- Kernel: nhân hệ điều hành, quản lý tài nguyên hệ thống và giao tiếp với phần cứng.
+Lớp hệ thống (System Layer) – Cung cấp công cụ cơ bản:
+
+- Shell: Giao diện dòng lệnh (CLI) giúp người dùng giao tiếp với hệ thống.
+- glibc (GNU C Library): Thư viện C tiêu chuẩn mà hầu hết các chương trình trong Linux sử dụng.
+- Libraries: Các thư viện phần mềm mà ứng dụng cần để chạy.
+- coreutils: Bộ công cụ dòng lệnh cơ bản (ls, cat, cp, mv, rm, etc.).
+
+Lớp ứng dụng và quản lý phần mềm:
+
+- Package Manager: Hệ thống quản lý gói phần mềm, giúp cài đặt và cập nhật ứng dụng (ví dụ: apt, dnf, pacman).
+- LAMP (Linux, Apache, MySQL, PHP/Python/Perl): Bộ công cụ cho máy chủ web.
+- GUI (Graphical User Interface): Giao diện đồ họa, giúp người dùng thao tác dễ dàng hơn (Gnome, KDE, XFCE…).
+- Browser: Trình duyệt web được cài sẵn trong nhiều bản phân phối.
+
 ### 3. Phân loại Disco Linux
 
 ![alt text](distro_group.png)
@@ -339,13 +356,13 @@ Khi ta muốn chuyển từ user này sang user khác ta có thể sử dụng l
 
       sudo su [user-name]
 
-# Quản trị Group
+## Quản trị Group
 
 - Group là một nhóm tập hợp các user.
 - Mỗi group có 1 tên duy nhất và 1 mã định danh duy nhất (gid).
 - Khi tạo ra 1 user ( không dùng option -g ) thì mặc định 1 group mang tên user được tạo ra.
 
-## . File /etc/group:
+### . File /etc/group:
 Là tập tin văn bản chứa thông tin về nhóm user trên máy.
 Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới
 có quyền thay đổi.
@@ -359,7 +376,7 @@ trên máy, định dạng của dòng gồm nhiều cột giá trị, dấu
 
 ![alt text](image-5.png)
 
-## . Các lệnh quản lý group
+### . Các lệnh quản lý group
 - Lệnh groupadd: Tạo nhóm
 
 Cấu trúc lệnh:
@@ -388,7 +405,7 @@ Cấu trúc lệnh:
 
       groupdel [group_name]
 
-# . Các quyền quản lý trong linux
+# 6 . Các quyền quản lý trong linux
 Trên thực tế mọi tập tin sẽ đều có chủ sở hữu, nó sẽ bao gồm user và group sở hữu tập tin đó.
 Ta có thể sử dụng lệnh “ls -lh” để xem.
 
@@ -407,7 +424,7 @@ Ví dụ: file ssh_config thì chủ sở hữu file có quyền đọc và sử
 
 Để thay đổi chủ sở hữu file ta dùng lệnh “chown”
 
-     hown [tên user mới] [tên file]
+     chown [tên user mới] [tên file]
 
 Để thay đổi group mới của file ta có dùng lệnh “chgrp”
 
@@ -417,7 +434,7 @@ Ví dụ: file ssh_config thì chủ sở hữu file có quyền đọc và sử
 
      chmod [u/g/o][+/-][r/w/x] [tên file]
 
-# . Một số lưu ý cần nhớ
+# 7. Một số lưu ý cần nhớ
 - Chỉ có quyền root mới có thể thực hiện câu lệnh “su”, còn các user khác muốn thực lệnh “su” thì đều cần quyền sudo.
 - Sự khác biệt giữa “su” và “su -”
 - Lệnh “su” sẽ giúp chúng ta chuyển đổi user mà vẫn giữ nguyên vị trí đang đứng trước đó.
