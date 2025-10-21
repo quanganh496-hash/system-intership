@@ -30,7 +30,7 @@ File này kiểm soát máy chủ SSH hoạt động. Mở file bằng lệnh:
 
 ## 1. Port - ListenAddress - Hostkey
 
-![alt text](image.png)
+![alt text](./image/image.png)
 
 - Mặc định, SSh chạy trên cổng 22.
 - Chỉ định IP mà SSH server lắng nghe. Mặc định sử dụng 0.0.0.0 (IPv4) hoặc :: (IPv6) để lắng nghe trên tất cả các giao diện mạng.
@@ -42,7 +42,7 @@ Cho phép đăng nhập bằng mật khẩu:
 
 - Mặc định là yes, SSH cho phép đăng nhập bằng mật khẩu:
 
-![alt text](image-1.png)
+![alt text](./image/image-1.png)
 
 Tắt đăng nhập bằng mật khẩu, chỉ cho phép dùng SSH Key (xóa dấu # đầu dòng để bỏ comment):
 
@@ -50,7 +50,7 @@ Tắt đăng nhập bằng mật khẩu, chỉ cho phép dùng SSH Key (xóa d�
 
 Cho phép xác thực bằng SSH Key:
 
-![alt text](image-2.png)
+![alt text](./image/image-2.png)
 
 - Thư mục chứa danh sách khóa công khai của user: ``.ssh/authorized_keys``.
 
@@ -85,7 +85,7 @@ Cho phép xác thực bằng SSH Key:
 
 ## 5. Chuyển tiếp kết nối (Forwarding)
 
-![alt text](image-3.png)
+![alt text](./image/image-3.png)
 
 - ``AllowTcpForwarding yes:`` Cho phép chuyển tiếp cổng (Port Forwarding) để tạo SSH Tunnel.
 - ``X11Forwarding yes``: Cho phép X11 Forwarding (Chayj ứng dụng GUI qua SSH).
@@ -94,7 +94,7 @@ Cho phép xác thực bằng SSH Key:
 
 Ghi log SSH vào ``/var/log/auth.log``:
 
-![alt text](image-4.png)
+![alt text](./image/image-4.png)
 
 - ``SyslogFacility AUTH``: Cho biết AUTH là facility được định nghĩa trong syslog, thường được sử dụng cho các thông điệp liên quan đến bảo mật và ủy quyền (authorization).
 - ``LogLevel INFO``:INFO là mức độ chi tiết của thông điệp nhật ký và SSH server ghi lại. Các thông tin cơ bản sẽ được lưu.

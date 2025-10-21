@@ -12,7 +12,7 @@ Mặc định, SSH sử dụng cổng 22. Để tăng bảo mật, bạn có th�
 
 - Kết quả
 
-![alt text](image-5.png)
+![alt text](./image/image-5.png)
 
 - `0.0.0.0:22` → SSH lắng nghe trên mọi địa chỉ IPv4
 - `[::]:22` → SSH lắng nghe trên mọi địa chỉ IPv6
@@ -26,11 +26,11 @@ Mặc định, SSH sử dụng cổng 22. Để tăng bảo mật, bạn có th�
 
 - Tìm dòng:
 
-![alt text](image-6.png)
+![alt text](./image/image-6.png)
 
 Bỏ dấu # và đổi số cổng, ví dụ cổng 2222:
 
-![alt text](image-7.png)
+![alt text](./image/image-7.png)
 
 - Lưu ý:
 
@@ -62,7 +62,7 @@ Kiểm tra lại trạng thái firewall:
 
       sudo firewall-cmd --list-ports
 
-![alt text](image-8.png)
+![alt text](./image/image-8.png)
 
 `Bước 4`: Khởi động lại SSH để áp dụng thay đổi
 
@@ -70,7 +70,7 @@ Kiểm tra lại trạng thái firewall:
 
       sudo systemctl restart sshd
 
-![alt text](image-9.png)
+![alt text](./image/image-9.png)
 
 `Bước 5`: thực hiện ssh
 
@@ -78,7 +78,7 @@ Kiểm tra lại trạng thái firewall:
 
       ssh -p 2222 tom@172.16.30.138
 
-![alt text](image-10.png)
+![alt text](./image/image-10.png)
 
 `Bước 6 - tùy chọn`: chặn cổng 22 để tăng bảo mật
 

@@ -4,7 +4,7 @@ Từ máy chủ (macOS) đến webserver
 
 Bước 1: Kiểm tra IP trên máy ảo
 
-![alt text](image-24.png)
+![alt text](./image/image-24.png)
 
 Bước 2: Kiểm tra SSH Server trên máy ảo
 
@@ -12,7 +12,7 @@ Bước 2: Kiểm tra SSH Server trên máy ảo
 
       sudo systemctl status sshd
 
-![alt text](image-25.png)
+![alt text](./image/image-25.png)
 
 Nếu không, khởi động với lệnh:
 
@@ -32,7 +32,7 @@ CentOS dùng firewall, kiểm tra cổng SSH đã mở chưa (mặc định là 
 
 - Nếu có dòng ssh trong danh sách services là OK.
 
-![alt text](image-26.png)
+![alt text](./image/image-26.png)
 
 Trường hợp cổng chưa mở, thực hiện các lệnh sau:
 # Mở cổng SSH
@@ -74,7 +74,7 @@ root: Tài khoản trên máy ảo.
 
 Kết quả sau kết nối:
 
-![alt text](image-27.png)
+![alt text](./image/image-27.png)
 
 ## 2. Ubuntu Server
 
@@ -84,7 +84,7 @@ làm y hệt như trên
 
 SSH đang bị quản lý bằng systemd socket activation, không phải khởi động trực tiếp bằng sshd.service.
 
-![alt text](image-28.png)
+![alt text](./image/image-28.png)
 
  
 Để port 22 có hiệu lực, bạn cần làm đúng như hướng dẫn này:
@@ -101,11 +101,11 @@ Sau đó kiểm tra lại:
 
 
 
-![alt text](image-29.png)
+![alt text](./image/image-29.png)
 
 - rồi ssh lại: 
 
-![alt text](image-30.png)
+![alt text](./image/image-30.png)
 
 - Exit:
 
@@ -119,4 +119,4 @@ Sau đó kiểm tra lại:
 
       ssh tom@10.145.12.43
 
-![alt text](image-31.png)
+![alt text](./image/image-31.png)

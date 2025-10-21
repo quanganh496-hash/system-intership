@@ -66,7 +66,7 @@ Nó thu thập toàn bộ log từ kernel, services, và ứng dụng, lưu vào
   - `u ssh`: Tùy chọn -u (unit) được sử dụng để lọc nhật ký theo một đơn vị systemd cụ thể. Trong trường hợp này, ssh thường là tên của đơn vị quản lý dịch vụ SSH server (thường là ssh.service). Lệnh này sẽ hiển thị chỉ những nhật ký liên quan đến dịch vụ SSH.
   - `--no-pager`: Tùy chọn `--no-pager` yêu cầu journalctl hiển thị toàn bộ nhật ký trực tiếp ra terminal mà không cần sử dụng pager.
 
-![alt text](image-20.png)
+![alt text](./image/image-20.png)
  
 
 - Lọc log chỉ chứa lỗi SSH
@@ -88,7 +88,7 @@ Nó thu thập toàn bộ log từ kernel, services, và ứng dụng, lưu vào
 
 Kết quả (xuất hiện log khi có thay đổi. Để thoát khỏi chế độ này, sử dụng `Ctrl + c`):
 
-![alt text](image-21.png)
+![alt text](./image/image-21.png)
 
 - Tìm log đăng nhập SSH thành công và thất bại:
 
@@ -101,7 +101,7 @@ Kết quả (xuất hiện log khi có thay đổi. Để thoát khỏi chế đ
 
       sudo tail -f /var/log/secure
 
-![alt text](image-22.png)
+![alt text](./image/image-22.png)
 
 - Lọc log đăng nhập thành công/thất bại:
 
@@ -109,7 +109,7 @@ Kết quả (xuất hiện log khi có thay đổi. Để thoát khỏi chế đ
       sudo grep "Failed" /var/log/secure
 
 
-![alt text](image-23.png)
+![alt text](./image/image-23.png)
 
 ## 2. Kiểm tra tấn công SSH (Brute-force, Failed Login)
 

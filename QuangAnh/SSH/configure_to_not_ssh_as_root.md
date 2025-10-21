@@ -13,7 +13,7 @@
 
 - Tại dòng `PermitRootLogin`, bỏ dấu `#` và chuyển thành `no`
 
-![alt text](image-13.png)
+![alt text](./image/image-13.png)
 
 `Bước 2`: Restart SSH để áp dụng thay đổi
 
@@ -25,7 +25,7 @@
 
 - Nếu thấy lỗi `Permission denied` hoặc `Connection refused` như ảnh dưới -> OK.
 
-![alt text](image-16.png)
+![alt text](./image/image-16.png)
 
 - Thay vào đó, đăng nhập bằng tài khoản thường
 
@@ -45,11 +45,11 @@
 
       sudo vi /etc/ssh/sshd_config
 
-![alt text](image-17.png)
+![alt text](./image/image-17.png)
 
 - Tại dòng `PermitRootLogin`, bỏ dấu `#` và chuyển thành `no`
 
-![alt text](image-18.png)
+![alt text](./image/image-18.png)
 
 `Bước 2`: Restart SSH để áp dụng thay đổi
 
@@ -61,6 +61,6 @@
 
 - Nếu thấy lỗi Permission denied hoặc Connection refused như ảnh dưới -> OK.
 
-![alt text](image-19.png)
+![alt text](./image/image-19.png)
 
 

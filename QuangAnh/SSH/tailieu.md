@@ -4,7 +4,7 @@
 
 - Nó xác thực người dùng từ xa, truyền dữ liệu input từ client tới host, và relay kết quả trả về tới khách hàng. Dịch vụ được tạo ra nhằm thay thế cho trình Telnet không có mã hóa và sử dụng kỹ thuật cryptographic dẫn đến dữ liệu dễ bị đánh cắp.
 
-![alt text](SSH-la-gi.webp)
+![alt text](./image/SSH-la-gi.webp)
 
 - SSH là một giao thức bảo mật phổ biến trong lĩnh vực CNTT. Nhờ được sử dụng rộng rãi trong việc quản lý từ xa và truyền tải dữ liệu một cách an toàn, SSH đặt ra tiêu chuẩn cao về đảm bảo thông tin, ngăn chặn các rủi ro an ninh mạng.
 
@@ -52,7 +52,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 
 # 3. Các thành phần trong SSH
 
-![alt text](image-11.png)
+![alt text](./image/image-11.png)
 
 - Server : Một chương trình cho phép đi vào kết nối SSH với một bộ máy, trình bày xác thực, cấp phép, … Trong hầu hết SSH bổ sung của Unix thì server thường là sshd.
 - Client : Một chương trình kết nối đến SSH server và đưa ra yêu cầu như là “log me in” hoặc “copy this file”. Trong SSH1, SSH2 và OpenSSH, client chủ yếu là ssh và scp.
@@ -63,7 +63,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 
 # 4.Cách hoạt động của SSH
 
-![alt text](ssh_work.png)
+![alt text](./image/ssh_work.png)
 
 1. Establish TCP Connection.
 
@@ -107,7 +107,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - Client ký số chuỗi đó bằng private key của mình. để giải mã chuỗi random từ server.
 - Nếu giải mã thành công → chứng minh client hợp lệ.
 
-![alt text](ssh_key_auth-2-1.png)
+![alt text](./image/ssh_key_auth-2-1.png)
 
 10. Send Decrypted Data.
 - Client gửi lại kết quả giải mã cho server.
