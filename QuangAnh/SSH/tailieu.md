@@ -16,7 +16,6 @@
 - Toàn bộ dữ liệu trao đổi giữa client và server được mã hóa, tránh bị nghe lén (sniffing) hoặc đánh cắp thông tin.
 - SSH sử dụng các thuật toán mã hóa mạnh như AES, 3DES, Blowfish, ChaCha20, v.v.
 
-![alt text](image-4.png)
 
 2. Xác thực (Authentication)
 
@@ -155,7 +154,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - Keypharse (dạng string, cần ghi nhớ) – Mật khẩu để mở private key, khi đăng nhập vào server nó sẽ hỏi cái này.
 
 # 6. Một số thuật toán sử dụng trong SSH
-
+![alt text](image-4.png)
 ## 6.1. Thuật toán Public key (khóa công khai)
 
 - RSA (Digital Signature Algorithm): là thuật toán mã hóa bất đối xứng, dùng cho mã hóa và chữ ký
