@@ -57,10 +57,28 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 ![alt text](./image/image-11.png)
 
 - Server : Một chương trình cho phép đi vào kết nối SSH với một bộ máy, trình bày xác thực, cấp phép, … Trong hầu hết SSH bổ sung của Unix thì server thường là sshd.
+
 - Client : Một chương trình kết nối đến SSH server và đưa ra yêu cầu như là “log me in” hoặc “copy this file”. Trong SSH1, SSH2 và OpenSSH, client chủ yếu là ssh và scp.
+
 - Session : Một phiên kết nối giữa một client và một server. Nó bắt đầu sau khi client xác thực thành công đến một server và kết thúc khi kết nối chấm dứt. Session có thể được tương tác với nhau hoặc có thể là một chuyến riêng.
 
+- Key:
 
+## 3.1. Khái niệm Key
+
+Dùng để xác thực và mã hóa dữ liệu, bao gồm:
+
+- Khóa Công khai: Được đặt trên máy chủ, dùng để mã hóa dữ liệu.
+- Khóa Riêng tư: Được giữ bí mật trên máy khách, dùng để giải mã dữ liệu đã được mã hóa bằng khóa công khai tương ứng.
+- Khóa phiên: Một khóa ngẫu nhiên được tạo ra trong mỗi phiên làm việc để mã hóa dữ liệu trong phiên đó. 
+
+## 3.2. SSH Key
+
+- Khi tạo ra một SSH Key, bạn cần biết sẽ có 3 thành phần quan trọng như sau:
+
+- Public Key (dạng file và string) – Bạn sẽ copy ký tự key này sẽ bỏ vào file `` ~/.ssh/authorized_keys`` trên server của bạn.
+- Private Key (dạng file và string) – Bạn sẽ lưu file này vào máy tính, sau đó sẽ thiết lập cho PuTTY, WinSCP, MobaXterm,..để có thể login.
+- Keypharse (dạng string, cần ghi nhớ) – Mật khẩu để mở private key, khi đăng nhập vào server nó sẽ hỏi cái này.
 
 
 # 4.Cách hoạt động của SSH
@@ -137,48 +155,52 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - Client giải mã kết quả bằng cùng session key, hiển thị ra terminal.
 - Phiên SSH giờ đã sẵn sàng cho việc điều khiển, truyền file hoặc port forwarding.
 
-# 5. Key
 
-## 5.1. Khái niệm
-
-- Là chuỗi kí tự sử dụng để xác thực.
-
-- Có 2 loại khóa : khóa đối xứng(khóa bí mật) và khóa bất đối xứng(khóa công khai). Một khóa bất đối xứng (khóa công khai) :có 2 thành phần là phần công khai và phần bí mật.
-
-## 5.2. SSH Key
-
-- Khi tạo ra một SSH Key, bạn cần biết sẽ có 3 thành phần quan trọng như sau:
-
-- Public Key (dạng file và string) – Bạn sẽ copy ký tự key này sẽ bỏ vào file `` ~/.ssh/authorized_keys`` trên server của bạn.
-- Private Key (dạng file và string) – Bạn sẽ lưu file này vào máy tính, sau đó sẽ thiết lập cho PuTTY, WinSCP, MobaXterm,..để có thể login.
-- Keypharse (dạng string, cần ghi nhớ) – Mật khẩu để mở private key, khi đăng nhập vào server nó sẽ hỏi cái này.
-
-# 6. Một số thuật toán sử dụng trong SSH
+# 5. Một số thuật toán sử dụng trong SSH
 ![alt text](image-4.png)
-## 6.1. Thuật toán Public key (khóa công khai)
+- SSH sử dụng nhiều thuật toán, bao gồm các thuật toán cho `mã hóa khóa công khai (như RSA, ECDSA, ED25519) để xác thực`, `trao đổi khóa (như Diffie-Hellman, ECDH) để tạo khóa phiên`, và `mã hóa đối xứng (như AES, Blowfish) để mã hóa dữ liệu phiên`. Ngoài ra, SSH còn sử dụng thuật toán băm để đảm bảo tính toàn vẹn của dữ liệu. 
 
-- RSA (Digital Signature Algorithm): là thuật toán mã hóa bất đối xứng, dùng cho mã hóa và chữ ký
-- DSA: dùng chữ ký số
-- Thuật toán thỏa thuận Diffie-Hellman: cho phép 2 bên lấy được khóa được chia sẻ trên một kênh mở
-## 6.2. Thuật toán Private key (khóa bí mật)
+## 5.1. Thuật toán Public key (khóa công khai)
 
-- AES(Advanced Encryption Standard): là một thuật toán mã hóa khối, chiều dài có thể là 128 đến 256bit.
-- DES(Data Encryption Standard): là một thuật toán mã hóa bảo mật
-- 3DES: cải tiến của DES, tăng độ dài của khóa để đạt độ bảo mật cao hơn
-- RC4: Kiểu mã hóa nhanh, nhưng kém bảo mật
-- Blowfish: là một thuật toán mã hóa miễn phí, có tốc độ mã hóa nhanh hơn DES, nhưng chậm hơn RC4. Độ dài của key từ 32 đến 448bit.
-## 6.3. Hàm băm (HASH)
+Các thuật toán này được sử dụng để xác thực máy chủ (và tùy chọn là máy khách). 
 
-- CRS-32: Băm dữ liệu nhưng không mã hóa. Chỉ sử dụng để kiểm tra tính toàn vẹn của gói tin, tránh thay đổi thông tin trên đường truyền
-- MD5: Hàm băm có độ an toàn cao vì được mã hóa dữ liệu, với chiều dài là 128bit.
-- SHA-1: Một cải tiến của MD5, với chiều dài là 160bit
+- **RSA (Rivest–Shamir–Adleman)**: Một trong những thuật toán khóa công khai lâu đời và phổ biến nhất. Hiện có các phiên bản an toàn hơn như `rsa-sha2-256` và `rsa-sha2-512`.
+- **ECDSA (Elliptic Curve Digital Signature Algorithm)**: Sử dụng chữ ký số dựa trên đường cong elliptic, cung cấp độ bảo mật cao với kích thước khóa nhỏ hơn.
+ecdsa-sha2-nistp256: Một thuật toán ECDSA tiêu chuẩn.
+- **DSA (Digital Signature Algorithm)**: Một thuật toán khóa công khai cũ hơn, đã bị loại bỏ dần và không còn được khuyến khích sử dụng. 
+## 5.2. Thuật toán Private key (khóa bí mật)
 
-# 7. Hai phương pháp mã hoá đối xứng và bất đối xứng
+Thuật toán mã hóa được sử dụng để đảm bảo dữ liệu được truyền giữa hai hệ thống không thể bị đọc được bởi bất kỳ ai chặn đường truyền. Giao thức SSH sử dụng mã hóa đối xứng, nghĩa là cả hai bên (máy khách và máy chủ) đều sử dụng cùng một khóa để mã hóa và giải mã dữ liệu. Việc lựa chọn mã hóa nào sẽ được tự động thương lượng giữa máy khách (ứng dụng của bạn sử dụng SocketTools) và máy chủ mà bạn đang kết nối. Các mã hóa sau hiện được hỗ trợ:
 
+- `chacha20-poly1305@openssh.com` : Một thuật toán mã hóa mới hơn kết hợp thuật toán mã hóa luồng ChaCha20 và thuật toán xác thực tin nhắn Poly1305, mang lại hiệu suất và bảo mật cao. Đây là một giải pháp thay thế mạnh mẽ cho AES-GCM, đặc biệt là trên các hệ thống không sử dụng kiến ​​trúc Intel.
+- `aes256-gcm@openssh.com` : Một thuật toán mã hóa hiện đại kết hợp AES-256 với Galois/Counter Mode (GCM), mang lại cả tính toàn vẹn và bảo mật cho thông điệp. Đây là một giải pháp bảo mật và hiệu quả cao, đặc biệt trên các hệ thống có hỗ trợ tăng tốc phần cứng cho AES.
+- `aes128-gcm@openssh.com` : Tương tự như aes256-gcm nhưng sử dụng khóa 128 bit, mang lại sự cân bằng giữa bảo mật và hiệu suất.
+- `aes256-ctr, aes192-ctr, aes128-ctr` : AES ở chế độ Counter (CTR) là phương pháp mã hóa được sử dụng rộng rãi, biến mã khối thành mã luồng, được biết đến với tính bảo mật mạnh mẽ và hiệu suất cao.
+- `aes256-cbc, aes192-cbc, aes128-cbc` : AES ở chế độ Cipher Block Chaining (CBC) là một phương pháp mã hóa cũ hơn. Mặc dù an toàn, nhưng nó dễ bị tấn công hơn so với các chế độ hiện đại như CTR hoặc GCM.
+- `blowfish-cbc` : Một thuật toán mã hóa cũ hơn, nhanh hơn nhưng kém an toàn hơn so với AES. Thuật toán này sử dụng các khóa có độ dài thay đổi, thường được đặt thành 128 bit.
+- `cast128-cbc` : Một thuật toán mã hóa đối xứng sử dụng kích thước khối 64 bit và được biết đến là nhanh và an toàn.
+- `3des-cbc `: Triple DES, một tiêu chuẩn mã hóa cũ áp dụng thuật toán DES ba lần để cải thiện tính bảo mật, mặc dù được coi là chậm hơn và kém an toàn hơn so với các thuật toán hiện đại.
+## 5.3. Hàm băm (HASH)(Xác thực tin nhắn)
+
+Thuật toán băm được sử dụng để đảm bảo tính toàn vẹn của dữ liệu. Mã băm hoặc Mã Xác thực Tin nhắn (MAC) được tính toán từ dữ liệu được gửi đi, và bên nhận cũng tính toán cùng một mã băm để đảm bảo dữ liệu không bị giả mạo trong quá trình truyền. Các thuật toán băm sau hiện đang được hỗ trợ:
+
+- **hmac-sha2-256, hmac-sha2-512** : HMAC (Mã Xác thực Thông điệp Băm) sử dụng SHA-2 (Thuật toán Băm Bảo mật 2) đảm bảo tính toàn vẹn dữ liệu cao. Số (256 hoặc 512) biểu thị độ dài bit của đầu ra băm.
+- **hmac-sha1, hmac-sha1-96** : HMAC sử dụng SHA-1 là một tiêu chuẩn cũ hơn. Mặc dù vẫn được hỗ trợ, SHA-1 đang dần bị thay thế bởi SHA-2 do những điểm yếu đã được biết đến.
+- **hmac-ripemd160** : Một hàm băm dựa trên RIPEMD, cung cấp kích thước tóm tắt 160 bit. Đây là một giải pháp thay thế ít phổ biến hơn cho SHA.
+
+## 5.4. Thuật toán trao đổi khóa
+Các thuật toán trao đổi khóa được sử dụng trong SSH để tạo ra một khóa bí mật chung (khóa mã hóa) giữa máy khách và máy chủ một cách an toàn. Các thuật toán này đảm bảo khóa không thể bị đánh cắp, ngay cả khi có người đang nghe lén giao tiếp. Các thuật toán trao đổi khóa sau được hỗ trợ:
+
+- `curve25519-sha256` : Thuật toán trao đổi khóa đường cong elip hiện đại và nhanh chóng, kết hợp với hàm băm SHA-256 để tạo khóa an toàn.
+- `ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521` : Elliptic Curve Diffie-Hellman (ECDH) với các kích thước đường cong elliptic khác nhau. Đây là các phương pháp trao đổi khóa hiện đại, an toàn, sử dụng mật mã đường cong elliptic để tăng cường bảo mật.
+- `diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1` : Trao đổi khóa Diffie-Hellman cho phép tạo động các tham số trao đổi khóa để bảo mật tốt hơn, kết hợp với SHA-256 hoặc thuật toán băm SHA-1 cũ hơn.
+- `diffie-hellman-group16-sha512, diffie-hellman-group18-sha512` : Các biến thể Diffie-Hellman an toàn hơn sử dụng các nhóm nguyên tố lớn và SHA-512 để tăng cường bảo mật.
+- `diffie-hellman-group14-sha256, diffie-hellman-group14-sha1` : Các thuật toán này sử dụng nhóm số nguyên tố 2048 bit được xác định trước, mang lại sự cân bằng giữa bảo mật và hiệu suất. SHA-256 là lựa chọn ưu tiên, trong khi SHA-1 cũ hơn và kém bảo mật hơn.
+- `diffie-hellman-group1-sha1` : Một trong những thuật toán Diffie-Hellman đầu tiên sử dụng số nguyên tố nhỏ, được coi là kém an toàn hơn hiện nay.
+# 6. Hai phương pháp mã hoá đối xứng và bất đối xứng
+
+## 6.1. MÃ HÓA BẤT ĐỐI XỨNG (Asymmetric Encryption)
 ![alt text](image-2.png)
-
-## 1. MÃ HÓA BẤT ĐỐI XỨNG (Asymmetric Encryption)
-
 🔹 Khái niệm:
 
 Dùng 2 khóa khác nhau:
@@ -198,9 +220,8 @@ Dữ liệu mã hóa bằng public key chỉ có thể giải mã bằng private
 - Tốc độ chậm hơn so với mã hóa đối xứng, do tính toán phức tạp.
 - Vì vậy, SSH chỉ dùng nó trong bước khởi đầu, không dùng suốt phiên làm việc.
 
-## 2. MÃ HÓA ĐỐI XỨNG (Symmetric Encryption)
+## 6.2. MÃ HÓA ĐỐI XỨNG (Symmetric Encryption)
 
-2. MÃ HÓA ĐỐI XỨNG (Symmetric Encryption)
 ![alt text](image-3.png)
 
 🔹 Khái niệm:
