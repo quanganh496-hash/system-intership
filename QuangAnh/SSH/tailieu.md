@@ -1,6 +1,7 @@
 # 1. Khái niệm SSH
 - SSH (viết tắt của Secure Shell) là một giao thức bảo mật dùng để điều khiển máy tính từ xa qua dòng lệnh 
 - Giao thức điều khiển cho phép người dùng kiểm soát và chỉnh sửa server từ xa qua Internet. 
+- hoạt động ở layel 4
 
 - Nó xác thực người dùng từ xa, truyền dữ liệu input từ client tới host, và relay kết quả trả về tới khách hàng. Dịch vụ được tạo ra nhằm thay thế cho trình Telnet không có mã hóa và sử dụng kỹ thuật cryptographic dẫn đến dữ liệu dễ bị đánh cắp.
 
@@ -14,6 +15,8 @@
 
 - Toàn bộ dữ liệu trao đổi giữa client và server được mã hóa, tránh bị nghe lén (sniffing) hoặc đánh cắp thông tin.
 - SSH sử dụng các thuật toán mã hóa mạnh như AES, 3DES, Blowfish, ChaCha20, v.v.
+
+![alt text](image-4.png)
 
 2. Xác thực (Authentication)
 
@@ -62,8 +65,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 
 
 # 4.Cách hoạt động của SSH
-
-![alt text](./image/ssh_work.png)
+![alt text](image-1.png)
 
 1. Establish TCP Connection.
 
@@ -86,6 +88,8 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - Client sinh ra một cặp public key / private key (nếu chưa có).
 - Private key được giữ bí mật, public key có thể gửi cho server.
 
+**bắt đầu sử dụng pp mã hoá bất đối xứng**
+
 5. Send Public Key.
 - Client gửi public key của mình đến SSH Server.
 - Server kiểm tra xem khóa này có nằm trong file ``~/.ssh/authorized_keys`` của user không.
@@ -106,7 +110,6 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - Client ký số chuỗi đó bằng private key của mình. để giải mã chuỗi random từ server.
 - Nếu giải mã thành công → chứng minh client hợp lệ.
 
-![alt text](./image/ssh_key_auth-2-1.png)
 
 10. Send Decrypted Data.
 - Client gửi lại kết quả giải mã cho server.
@@ -171,3 +174,51 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 - MD5: Hàm băm có độ an toàn cao vì được mã hóa dữ liệu, với chiều dài là 128bit.
 - SHA-1: Một cải tiến của MD5, với chiều dài là 160bit
 
+# 7. Hai phương pháp mã hoá đối xứng và bất đối xứng
+
+![alt text](image-2.png)
+
+## 1. MÃ HÓA BẤT ĐỐI XỨNG (Asymmetric Encryption)
+
+🔹 Khái niệm:
+
+Dùng 2 khóa khác nhau:
+
+- Public key (khóa công khai) – có thể chia sẻ cho người khác.
+- Private key (khóa bí mật) – chỉ người sở hữu giữ.
+
+Dữ liệu mã hóa bằng public key chỉ có thể giải mã bằng private key, và ngược lại.
+
+🔹 Trong SSH, dùng khi nào?
+
+ Dùng ở giai đoạn ban đầu của kết nối:
+- Trao đổi khóa (key exchange) – để tạo ra khóa phiên (session key).
+- Xác thực người dùng (authentication) – để chứng minh client thực sự sở hữu private key hợp lệ.
+
+🔹 Nhược điểm:
+- Tốc độ chậm hơn so với mã hóa đối xứng, do tính toán phức tạp.
+- Vì vậy, SSH chỉ dùng nó trong bước khởi đầu, không dùng suốt phiên làm việc.
+
+## 2. MÃ HÓA ĐỐI XỨNG (Symmetric Encryption)
+
+2. MÃ HÓA ĐỐI XỨNG (Symmetric Encryption)
+![alt text](image-3.png)
+
+🔹 Khái niệm:
+- Dùng một khóa duy nhất (session key) để vừa mã hóa vừa giải mã dữ liệu.
+- Cả client và server đều có cùng khóa này.
+
+🔹 Trong SSH, dùng khi nào?
+- Sau khi kết nối được thiết lập và session key được tạo ra từ quá trình trao đổi khóa.
+- Toàn bộ dữ liệu trao đổi (lệnh, file, kết quả) đều được mã hóa đối xứng.
+
+🔹 Ví dụ:
+- Sau khi trao đổi khóa xong, SSH sinh ra một session key tạm thời, ví dụ dùng thuật toán AES-256.
+- Tất cả lệnh và phản hồi sau đó đều mã hóa bằng session key này.
+
+🔹 Ưu điểm:
+- Tốc độ rất nhanh và phù hợp để mã hóa dữ liệu liên tục.
+- Khóa chỉ tồn tại trong một phiên SSH, sau khi ngắt kết nối sẽ bị hủy → an toàn.
+
+🔹 Nhược điểm:
+- Nếu session key bị lộ, dữ liệu có thể bị giải mã → vì vậy SSH luôn trao đổi khóa bằng cách bất đối xứng an toàn trước khi sinh session key.
