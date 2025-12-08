@@ -137,9 +137,30 @@ Dùng để xác thực và mã hóa dữ liệu, bao gồm:
   - Nếu đúng → xác thực thành công (client. thực sự có private key).
   - Nếu sai → từ chối kết nối.
 
+
 12. Session Request and Response.
-- Sau khi xác thực xong, client và server tạo một session key (khóa phiên).
+- Sau khi xác thực xong, client và server tạo một **session key (khóa phiên)**.
 - Session key này dùng để mã hóa toàn bộ dữ liệu trong suốt phiên làm việc, nhanh hơn vì là mã hóa đối xứng.
+
+## Tạo **session key (khóa phiên)**:
+
+Máy chủ và máy khách SSH sử dụng thuật toán trao đổi khóa để tạo động một khóa phiên và ID phiên dùng chung nhằm thiết lập một kênh được mã hóa. Khóa phiên được sử dụng để mã hóa dữ liệu truyền đi tiếp theo, và ID phiên được sử dụng để xác định kết nối SSH liên quan trong quá trình xác thực. Trong giai đoạn này, máy khách cũng sẽ hoàn tất xác thực danh tính máy chủ. Quy trình là máy chủ sử dụng khóa riêng của mình để ký tin nhắn và máy khách sử dụng khóa công khai của máy chủ để xác minh chữ ký.
+
+Máy chủ và máy khách SSH cần giữ cùng một khóa phiên cho quá trình mã hóa đối xứng tiếp theo. Để đảm bảo tính bảo mật của việc trao đổi khóa, SSH tạo khóa phiên bằng phương pháp bảo mật: máy chủ và máy khách SSH cùng tạo một khóa phiên. Cụ thể, dựa trên các lý thuyết toán học, việc trao đổi khóa mà không cần truyền khóa trực tiếp được thực hiện, do đó khóa không cần phải được truyền qua một kênh không an toàn. Hình dưới đây minh họa quy trình chi tiết.
+
+![alt text](image-5.png)
+
+- Trao đổi khóa SSH:
+   -  Máy chủ SSH tạo ra các số nguyên tố G. và P, và khóa riêng tư b của máy chủ, rồi tính toán khóa công khai y của máy chủ theo công thức sau: y = (G^b)%P.
+
+   -  Máy chủ SSH gửi các số nguyên tố G và. P cùng khóa công khai y của máy chủ đến. máy khách SSH.
+
+   -  Máy khách SSH tạo ra một khóa riêng tư a và tính toán khóa công khai x của máy khách theo công thức sau: x = (G^a)%P.
+
+   -  Máy khách SSH gửi khóa công khai x. của máy khách đến máy chủ SSH.
+
+   -  Máy chủ SSH tính toán khóa đối xứng K theo công thức K = (x^b)%P, và máy khách SSH tính toán khóa đối xứng K theo công thức K = (y^a)%P. Định luật toán học đảm bảo rằng các khóa đối xứng do máy chủ và máy khách SSH tạo ra là giống nhau.
+
 
 13. Send Encrypted Commands.
 - Client gửi các lệnh (command) đến server qua đường hầm SSH Tunnel.
@@ -157,7 +178,9 @@ Dùng để xác thực và mã hóa dữ liệu, bao gồm:
 
 
 # 5. Một số thuật toán sử dụng trong SSH
+
 ![alt text](image-4.png)
+
 - SSH sử dụng nhiều thuật toán, bao gồm các thuật toán cho `mã hóa khóa công khai (như RSA, ECDSA, ED25519) để xác thực`, `trao đổi khóa (như Diffie-Hellman, ECDH) để tạo khóa phiên`, và `mã hóa đối xứng (như AES, Blowfish) để mã hóa dữ liệu phiên`. Ngoài ra, SSH còn sử dụng thuật toán băm để đảm bảo tính toàn vẹn của dữ liệu. 
 
 ## 5.1. Thuật toán Public key (khóa công khai)
