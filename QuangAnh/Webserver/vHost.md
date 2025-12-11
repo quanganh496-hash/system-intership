@@ -139,19 +139,72 @@ Bạn sẽ thấy nội dung HTML tương ứng từng site.
 
 ### Rocky9
 
+1. Tạo thư mục website
 
+Ví dụ bạn có 2 web: `site1.com` và `site2.com`
+Tạo thư mục:
 
+    sudo mkdir -p /var/www/site1
+    sudo mkdir -p /var/www/site2
 
+Thêm file index thử:
 
+    echo "Hello from site1" | sudo tee /var/www/site1/index.html
+    echo "Hello from site2" | sudo tee /var/www/site2/index.html
 
+Phân quyền:
 
+    sudo chown -R $USER:$USER /var/www/site1
+    sudo chown -R $USER:$USER /var/www/site2
 
+2. Tạo Virtual Host cho từng site
 
+Tạo file cho site1
 
+    sudo vi /etc/httpd/conf.d/site1.conf
 
+Thêm nội dung:
 
+![alt text](image-40.png)
 
+Tạo file cho site2
 
+    sudo nano /etc/httpd/conf.d/site2.conf
+
+![alt text](image-39.png)
+
+3. Kiểm tra cấu hình Apache
+
+       sudo apachectl configtest
+
+Nếu hiện:
+`Syntax OK`
+→ Là đúng.
+
+4. Restart Apache
+
+     sudo systemctl restart httpd
+
+5. Trỏ domain (hoặc local test)
+
+Nếu test trên máy local:
+
+Sửa file hosts:
+
+    sudo nano /etc/hosts
+
+Thêm:
+    
+    ip rocky   site1.com
+    ip rocky   site2.com
+
+Xong! Truy cập thử:
+
+`http://site1.com` → hiện Hello from site1
+`http://site2.com` → hiện Hello from site2
+
+![alt text](image-41.png)
+![alt text](image-42.png)
 
 
 
@@ -246,7 +299,67 @@ Lưu ý: Vì đã cấu hình virtualhost ở `Bước 4` với cổng 8080 nên
 
 ### Rocky9
 
+`Bước 1` — Tạo thư mục cho từng website
 
+    sudo mkdir -p /var/www/myweb
+    sudo mkdir -p /var/www/myweb2
+
+Tạo file index:
+
+    echo "Hello from MYWEB" | sudo tee /var/www/myweb/index.html
+    echo "Hello from MYWEB2" | sudo tee /var/www/myweb2/index.html
+
+Phân quyền:
+
+    sudo chown -R nginx:nginx /var/www/myweb
+    sudo chown -R nginx:nginx /var/www/myweb2
+
+`Bước 2` — Tạo Virtual Host cho từng domain
+
+File 1: myweb.local
+
+     sudo vi /etc/nginx/conf.d/myweb.conf
+
+Dán nội dung:
+
+![alt text](image-46.png)
+
+Fille 2: myweb2.local
+
+    sudo vi /etc/nginx/conf.d/myweb2.conf
+
+Dán:
+
+![alt text](image-45.png)
+
+`Bước 3`— Kiểm tra cấu hình và restart Nginx
+
+    sudo nginx -t
+    sudo systemctl restart nginx
+
+Nếu OK → Nginx đã nhận 2 Virtual Host.
+
+`Bước 4` — Thêm hosts trên máy client (Mac của bạn)
+
+Mở file hosts:
+
+    sudo nano /etc/hosts
+
+Thêm:
+
+    IP máy Rocky bạn   myweb.com
+    IP máy Rocky bạn   myweb2.com
+
+Test
+
+    http://myweb.local:8080
+    http://myweb2.local:8080
+
+
+![alt text](image-43.png)
+
+![alt text](image-44.png)
+Cả 2 web sẽ chạy độc lập.
 
 
 
