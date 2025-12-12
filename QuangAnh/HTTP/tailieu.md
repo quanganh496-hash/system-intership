@@ -37,7 +37,7 @@ Mỗi yêu cầu HTTP được thực hiện trên Internet đều mang theo m�
 - HTTP request headers
 - Optional HTTP body(có thể có hoặc không)
 
-![alt text](image-1.png)
+![alt text](/QuangAnh/HTTP/image/image-1.png)
 
 # 3.Lịch sử và phiên bản
 ## Các cột mốc chính trong lịch sử HTTP
@@ -76,7 +76,7 @@ Trong đó:
 | Thành phần                                    | Mô tả                                                                                               |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | **https://**                                  | **Giao thức (Protocol)** – cho biết cách trình duyệt và máy chủ giao tiếp (HTTP, HTTPS, FTP, v.v.). |
-| **[www.example.com](http://www.example.com)** | **Tên miền (Domain name)** – định danh máy chủ chứa tài nguyên.                                     |
+| **[`www.example.com`](http://www.example.com)** | **Tên miền (Domain name)** – định danh máy chủ chứa tài nguyên.                                     |
 | **:443**                                      | **Cổng (Port)** – chỉ định cổng mà server lắng nghe (HTTP mặc định là 80, HTTPS là 443).            |
 | **/path/page.html**                           | **Đường dẫn (Path)** – chỉ ra vị trí cụ thể của tài nguyên trên server.                             |
 | **?name=quang**                               | **Chuỗi truy vấn (Query string)** – chứa tham số được gửi đến server.                               |
@@ -96,16 +96,16 @@ HTTP hỗ trợ nhiều phương thức yêu cầu khác nhau, mỗi phương th
 # 6.HTTP Request:
 - Request Line: Dòng lệnh chính (phương thức, tài nguyên, phiên bản HTTP).
 
-![alt text](image-3.png)
+![alt text](/QuangAnh/HTTP/image/image-3.png)
 - Request Headers: Các thông tin bổ sung
 
   - Tiêu đề HTTP chứa thông tin văn bản được lưu trữ theo cặp key-value và được bao gồm trong mọi yêu cầu HTTP (và phản hồi, sẽ nói thêm về điều này sau). Các tiêu đề này truyền đạt thông tin cốt lõi, chẳng hạn như trình duyệt mà máy khách đang sử dụng và dữ liệu nào đang được yêu cầu.
 
-![alt text](image-2.png)
+![alt text](/QuangAnh/HTTP/image/image-2.png)
 
 | Header                                                  | Ý nghĩa                                             | Giải thích cụ thể                                                                                     |
 | ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **:authority: [www.google.com](http://www.google.com)** | Tên miền (Host) của server mà client muốn truy cập. | Giống như header `Host:` trong HTTP/1.1. Nó xác định địa chỉ của máy chủ nhận yêu cầu.                |
+| **:authority: [www.google.com]`(http://www.google.com)`** | Tên miền (Host) của server mà client muốn truy cập. | Giống như header `Host:` trong HTTP/1.1. Nó xác định địa chỉ của máy chủ nhận yêu cầu.                |
 | **:method: GET**                                        | Phương thức HTTP.                                   | Yêu cầu trình duyệt **lấy dữ liệu** từ máy chủ (ở đây là trang chủ `/` của Google).                   |
 | **:path: /**                                            | Đường dẫn tài nguyên trên server.                   | `/` nghĩa là **trang gốc** của website (home page). Nếu là `/search`, tức là truy cập trang tìm kiếm. |
 | **:scheme: https**                                      | Giao thức truyền tải.                               | Cho biết kết nối đang dùng **HTTPS** (bảo mật qua TLS), chứ không phải HTTP thông thường.             |
@@ -127,7 +127,7 @@ Một phản hồi HTTP thông thường bao gồm:
 - Tiêu đề phản hồi HTTP
 - Nội dung HTTP tùy chọn
 
-![alt text](image-5.png)
+![alt text](/QuangAnh/HTTP/image/image-5.png)
 
 **Mã trạng thái HTTP** là mã gồm 3 chữ số thường được sử dụng để biểu thị yêu cầu HTTP đã được hoàn tất thành công hay chưa. Mã trạng thái được chia thành 5 khối sau:
 
@@ -143,7 +143,7 @@ Mã trạng thái bắt đầu bằng số '2' biểu thị thành công. Ví d�
 
 Nếu phản hồi bắt đầu bằng '4' hoặc '5', điều đó có nghĩa là đã xảy ra lỗi và trang web sẽ không được hiển thị. Mã trạng thái bắt đầu bằng '4' biểu thị lỗi phía máy khách (rất thường gặp mã trạng thái '404 NOT FOUND' khi nhập sai URL). Mã trạng thái bắt đầu bằng '5' nghĩa là đã xảy ra lỗi ở phía máy chủ. Mã trạng thái cũng có thể bắt đầu bằng '1' hoặc '3', tương ứng biểu thị phản hồi thông tin và chuyển hướng.
 
-![alt text](image-6.png)
+![alt text](/QuangAnh/HTTP/image/image-6.png)
 
 Tương tự như yêu cầu HTTP, phản hồi HTTP cũng đi kèm với các tiêu đề truyền tải thông tin quan trọng như ngôn ngữ và định dạng của dữ liệu được gửi trong nội dung phản hồi.
 
@@ -166,7 +166,7 @@ HTTP response thành công cho các yêu cầu "GET" thường có phần nội 
 Khi duyệt HTTP, người dùng thường gặp phải một số lỗi phổ biến, mà dưới đây là những lỗi thường gặp cùng với nguyên nhân và cách khắc phục:
 ## 8.1. HTTP 404 Not Found
 
-![alt text](image-7.png)
+![alt text](/QuangAnh/HTTP/image/image-7.png)
 
 - Mô tả: Đây là một trong những lỗi phổ biến nhất khi duyệt web. Thông báo lỗi này xuất hiện khi trình duyệt không thể tìm thấy trang mà bạn đang cố gắng truy cập.
 - Nguyên nhân:
@@ -179,7 +179,7 @@ Kiểm tra và sửa lỗi chính tả trong địa chỉ URL.
 Thử xóa bớt các phần trong URL để tìm ra phần còn hoạt động. Ví dụ: nếu bạn có URL `http://example.com/category/product/1/`, hãy thử `http://example.com/category/` hoặc `http://example.com/`.
 ## 8.2. HTTP 500 Internal Server Error
 
-![alt text](image-8.png)
+![alt text](/QuangAnh/HTTP/image/image-8.png)
 
 - Mô tả: Lỗi này cho biết có vấn đề xảy ra bên trong máy chủ khi xử lý yêu cầu.
 - Nguyên nhân:
@@ -192,7 +192,7 @@ Thử xóa bớt các phần trong URL để tìm ra phần còn hoạt động.
 
 ## 8.3. HTTP 403 Forbidden
 
-![alt text](image-9.png)
+![alt text](/QuangAnh/HTTP/image/image-9.png)
 
 - Mô tả: Lỗi này xảy ra khi máy chủ từ chối yêu cầu của bạn, nghĩa là bạn không có quyền truy cập vào tài nguyên bạn đang cố gắng truy cập.
 - Nguyên nhân:
@@ -208,7 +208,7 @@ HTTP là giao thức hoạt động dựa trên mô hình yêu cầu-phản hồ
 
 Cấu trúc cơ bản của một yêu cầu HTTP bao gồm các thành phần chính sau:
 
-![alt text](image.png)
+![alt text](/QuangAnh/HTTP/image/image.png)
 
 1. Web Client
 - Là người gửi yêu cầu (client): thường là trình duyệt (Chrome, Firefox...), nhưng cũng có thể là ứng dụng mobile, script, bot, curl, v.v.

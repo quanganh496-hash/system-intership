@@ -1,7 +1,7 @@
 # Lệnh curl
  Curl là một trong những dự án mã nguồn mở lâu đời và phổ biến nhất trên thế giới. cURL là từ viết tắt của **Client URL** - một công cụ dòng lệnh (command line tool) được sử dụng để kiểm tra kết nối từ URL, thực hiện truyền dữ liệu giữa các máy chủ và thiết bị. Với giao thức HTTP, cURL hỗ trợ việc gửi đi một request với tất cả các phương thức hiện có như GET, POST, PUT, DELETE…
 
-![alt text](image-21.png)
+![alt text](/QuangAnh/HTTP/image/image-21.png)
 
 ## 2. Lịch sử hình thành và phát triển của cURL
 
@@ -18,7 +18,7 @@ Dưới đây là một cái nhìn tổng quan về lịch sử hình thành và
 
 cURL Linux tương thích với đa dạng giao thức. Tuy nhiên, nếu không chỉ định giao thức nào, cURL tự động chọn HTTP làm giao thức mặc định. Dưới đây liệt kê các giao thức mà cURL Linux có khả năng hỗ trợ:
 
-![alt text](image-20.png)
+![alt text](/QuangAnh/HTTP/image/image-20.png)
 
 Lưu ý rằng danh sách cụ thể các giao thức được hỗ trợ có thể thay đổi tùy thuộc vào phiên bản cURL và cách nó được biên dịch. Để kiểm tra các giao thức được hỗ trợ trong phiên bản cURL Linux cụ thể của bạn, bạn có thể chạy lệnh curl –version trong terminal hoặc command prompt.
 
@@ -111,7 +111,7 @@ Trên các bản phân phối dựa trên RHEL như CentOS và Fedora:
 
     curl <URL>
 
-![alt text](image-22.png)
+![alt text](/QuangAnh/HTTP/image/image-22.png)
 
 Có thể tải nhiều nhiều trang tương tự nhau:
 
@@ -161,7 +161,7 @@ Ví dụ:
 
     curl -# -o hello.zip ftp://speedtest.tele2.net/1MB.zip
 
-![alt text](image-24.png)
+![alt text](/QuangAnh/HTTP/image/image-24.png)
 
 3. Lưu file tải về với tên tùy chọn
 
@@ -170,7 +170,7 @@ Ví dụ:
      curl -O http://speedtest.tele2.net/1MB.zip
 
 
-![alt text](image-23.png)
+![alt text](/QuangAnh/HTTP/image/image-23.png)
 
 | Cột                   | Ý nghĩa                   |
 | --------------------- | ------------------------- |
@@ -190,7 +190,7 @@ Ví dụ:
 
      curl -O http://speedtest.tele2.net/1MB.zip
 
-![alt text](image-25.png)
+![alt text](/QuangAnh/HTTP/image/image-25.png)
 
 Tải xuống nhiều tệp:
 
@@ -208,13 +208,13 @@ Tải xuống nhiều tệp:
 
      curl -O http://test.rebex.net/readme.txt
 
-![alt text](image-26.png)
+![alt text](/QuangAnh/HTTP/image/image-26.png)
 
 7. Truy vấn HTTP Header
 
 `curl -I [URL]` Ví dụ:
 
-![alt text](image-27.png)
+![alt text](/QuangAnh/HTTP/image/image-27.png)
 
 8. Lưu trữ 1 cookie
 
@@ -238,7 +238,7 @@ Ví dụ:
 
       curl --limit-rate 1000K -O ftp://speedtest.tele2.net/1MB.zip
 
-![alt text](image-28.png)
+![alt text](/QuangAnh/HTTP/image/image-28.png)
 
 11. Mô phỏng các Method HTTP
 
@@ -268,7 +268,8 @@ Với file:
 
     curl -X POST http://localhost:3000/data -d "@data.txt" 
 POST dạng Json
-      curl -X POST http://localhost:3000/data -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}' 
+
+     curl -X POST http://localhost:3000/data -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}' 
 Với file:
 
      curl -X POST http://localhost:3000/data -d "@data.json" 

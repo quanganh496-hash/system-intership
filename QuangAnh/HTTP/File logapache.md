@@ -86,7 +86,7 @@ Khi bạn chạy lệnh dưới đây:
 
     sudo grep common /etc/apache2/apache2.conf
 
-![alt text](image-32.png)
+![alt text](/QuangAnh/HTTP/image/image-32.png)
 
 Dòng trên định nghĩa biệt danh `common`và liên kết nó với một chuỗi định dạng nhật ký cụ thể. Một mục nhật ký được tạo theo định dạng này sẽ trông như thế này:
 
@@ -114,7 +114,7 @@ Nó cũng được định nghĩa trong `/etc/apache2/apache2.conf`tệp cấu h
 
 Bạn sẽ thấy kết quả sau:
 
-![alt text](image-33.png)
+![alt text](/QuangAnh/HTTP/image/image-33.png)
 
 Lưu ý rằng định dạng này hoàn toàn giống với Common Log Format, chỉ khác là có thêm hai trường. Các mục nhập được tạo theo định dạng này sẽ trông như thế này:
 

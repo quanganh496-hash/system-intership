@@ -1,12 +1,12 @@
 # 1. Proxy
 Proxy (còn được gọi là Proxy server) là máy chủ trung gian, đóng vai trò như một cổng kết nối giữa người dùng và internet. Proxy có chức năng tương tự như một bức tường lửa (firewall) hay một bộ lọc truy cập trang web, đảm bảo các kết nối được an toàn khi sử dụng.
 
-![alt text](image-13.png)
+![alt text](/QuangAnh/HTTP/image/image-13.png)
 
 
 # 2. Chức năng của máy chủ Proxy
 
-![alt text](image-14.png)
+![alt text](/QuangAnh/HTTP/image/image-14.png)
 
 Proxy HTTP thực hiện nhiều vai trò quan trọng trong quá trình giao tiếp giữa client và server. Một số vai trò cơ bản bao gồm:
 
@@ -22,7 +22,7 @@ Như mọi người đã biết, mọi máy tính trên Internet đều phải c
 Proxy Server về cơ bản là một máy tính trên Internet với địa chỉ IP của riêng nó mà máy tính của bạn biết. Khi gửi một yêu cầu web, nó sẽ đến Proxy Server đầu tiên. Sau đó, Proxy Server sẽ thực hiện yêu cầu web và thu thập phản hồi từ máy chủ web và chuyển tiếp dữ liệu trang web để người dùng nhìn thấy các trang web trong trình duyệt.
 Khi Proxy Server chuyển tiếp yêu cầu web của người dùng, nó có thể thay đổi dữ liệu đó mà vẫn lấy thông tin theo đúng yêu cầu. Máy chủ Proxy có thể thay đổi địa chỉ IP để máy chủ web không thể nắm rõ được chính xác vị trí của người dùng, cùng với đó việc mã hóa dữ liệu cũng giúp nâng cao hơn độ bảo mật trong quá trình vận chuyển. Và cuối cùng Proxy Server có thể giúp chặn các truy cập vào các trang web cụ thể dựa trên địa chỉ IP.
 
-![alt text](image-15.png)
+![alt text](/QuangAnh/HTTP/image/image-15.png)
 
 # 4. loại Proxy Server phổ biến hiện nay
 

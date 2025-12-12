@@ -4,7 +4,7 @@
 
 ## 1.Cơ chế hoạt động của Session
 
-![alt text](image-10.png)
+![alt text](/QuangAnh/HTTP/image/image-10.png)
 
 - Khởi tạo phiên (Session bắt đầu): Khi người dùng gửi yêu cầu đầu tiên (ví dụ đăng nhập hoặc vào trang web), server sẽ tạo một phiên làm việc mới và phát sinh một Session ID duy nhất cho phiên đó.
 - Lưu trữ dữ liệu (Server-side): Tất cả dữ liệu liên quan đến phiên (ID người dùng, trạng thái đăng nhập, giỏ hàng, tùy chọn ngôn ngữ…) được lưu trữ ở phía server, thường trong bộ nhớ RAM hoặc cơ sở dữ liệu.
@@ -63,8 +63,8 @@ Cookie là một đoạn dữ liệu nhỏ do trang web lưu trữ trên máy kh
 
 # Session và Cookie có gì khác biệt?
 
-![alt text](image-12.png)
+![alt text](/QuangAnh/HTTP/image/image-12.png)
 
 Session và Cookie có nhiều điểm khác biệt quan trọng cần lưu ý. Dưới đây là một bảng so sánh chi tiết giữa Session và Cookie:
 
-![alt text](image-11.png)
+![alt text](/QuangAnh/HTTP/image/image-11.png)
