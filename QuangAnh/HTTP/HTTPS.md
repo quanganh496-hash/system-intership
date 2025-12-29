@@ -67,3 +67,5 @@ Tất cả các bắt tay TLS đều sử dụng mật mã không đối xứng 
 
 10. Mã hóa đối xứng an toàn đạt được
 
+
+https://topdev.vn/blog/https-giai-thich-voi-chim-bo-cau-van-chuyen/
