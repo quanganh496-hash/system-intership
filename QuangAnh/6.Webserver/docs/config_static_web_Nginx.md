@@ -21,7 +21,7 @@ Tạo file:
 
 Dán nội dung:
 
-   ![alt text](image-23.png)
+   ![alt text](/QuangAnh/6.Webserver/image/image-23.png)
 
 Kích hoạt site:
 
@@ -31,6 +31,6 @@ Xóa default (nếu muốn):
 
      sudo rm /etc/nginx/sites-enabled/default
 
-![alt text](image-24.png)
+![alt text](/QuangAnh/6.Webserver/image/image-24.png)
 
 ## Rocky9

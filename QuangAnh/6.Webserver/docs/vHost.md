@@ -1,7 +1,7 @@
 # Virtual Host trong Apache
 ## 1. Giới thiệu Virtual Host (Mục đích, lợi ích)
 
-![alt text](image-26.png)
+![alt text](/QuangAnh/6.Webserver/image/image-26.png)
 
 Có nghĩa là bạn không cần một server riêng cho mỗi website.
 
@@ -19,7 +19,7 @@ Apache hỗ trợ ba hình thức Virtual Host chính: Name-based, IP-based, và
 - **IP-based Virtual Host**: Mỗi website được gán một địa chỉ IP riêng trên máy chủ. Apache sẽ dựa vào địa chỉ IP của request để chọn trang web. Phương án này ít dùng do thiếu IP (đặc biệt với IPv4), chỉ cần thiết khi không thể dùng Name-based (ví dụ một số thiết bị cũ không hỗ trợ SNI cho HTTPS).
 - **Port-based Virtual Host**: Sử dụng các cổng khác nhau trên cùng một IP để phân biệt website. Ví dụ, một site chạy trên port 80, site khác trên port 8080 hoặc 443. Ưu điểm là không cần thêm IP hay tên miền, nhưng người dùng phải chỉ định cổng khi truy cập (ví dụ `http://mysite.local:8080`), điều này có thể gây phiền hà và ít được dùng trên môi trường sản xuất. Port-based thường dùng cho phát triển hoặc khi thực sự cần tách dịch vụ trên cổng khác.
 
-![alt text](image-27.png)
+![alt text](/QuangAnh/6.Webserver/image/image-27.png)
 
 ## 3.Chi tiết về Cách thức vận hành của Virtual Host
 
@@ -71,13 +71,13 @@ Tạo file cấu hình mới:
 
 Nội dung:
 
-![alt text](image-30.png)
+![alt text](/QuangAnh/6.Webserver/image/image-30.png)
 
 Tương tự với site2.local:
 
     sudo nano /etc/apache2/sites-available/site2.local.conf
 
-![alt text](image-31.png)
+![alt text](/QuangAnh/6.Webserver/image/image-31.png)
 
 Bước 4: Kích hoạt Virtual Host
 
@@ -133,9 +133,9 @@ Mở trình duyệt và vào:
 
 Bạn sẽ thấy nội dung HTML tương ứng từng site.
 
-![alt text](image-32.png)
+![alt text](/QuangAnh/6.Webserver/image/image-32.png)
 
-![alt text](image-34.png)
+![alt text](/QuangAnh/6.Webserver/image/image-34.png)
 
 ### Rocky9
 
@@ -165,13 +165,13 @@ Tạo file cho site1
 
 Thêm nội dung:
 
-![alt text](image-40.png)
+![alt text](/QuangAnh/6.Webserver/image/image-40.png)
 
 Tạo file cho site2
 
     sudo nano /etc/httpd/conf.d/site2.conf
 
-![alt text](image-39.png)
+![alt text](/QuangAnh/6.Webserver/image/image-39.png)
 
 3. Kiểm tra cấu hình Apache
 
@@ -203,8 +203,8 @@ Xong! Truy cập thử:
 `http://site1.com` → hiện Hello from site1
 `http://site2.com` → hiện Hello from site2
 
-![alt text](image-41.png)
-![alt text](image-42.png)
+![alt text](/QuangAnh/6.Webserver/image/image-41.png)
+![alt text](/QuangAnh/6.Webserver/image/image-42.png)
 
 
 
@@ -252,13 +252,13 @@ Tạo file cấu hình cho myweb.local:
 
     sudo vi /etc/nginx/sites-available/myweb.local
 Thêm nội dung sau:
-![alt text](image-36.png)
+![alt text](/QuangAnh/6.Webserver/image/image-36.png)
 
 Tạo file cấu hình cho myweb2.local:
 
     sudo vi /etc/nginx/sites-available/myweb2.local
 Thêm nội dung sau:
-![alt text](image-35.png)
+![alt text](/QuangAnh/6.Webserver//image/image-35.png)
 Bước 5: Kích hoạt VirtualHost
 
 Tạo liên kết sites-available sang sites-enabled
@@ -294,8 +294,8 @@ Lưu và đóng
 Bước 8: Kiểm tra website trên trình duyệt.
 
 Lưu ý: Vì đã cấu hình virtualhost ở `Bước 4` với cổng 8080 nên khi truy cập, cần thêm :8080 đằng sau URL:
-![alt text](image-38.png)
-![alt text](image-37.png)
+![alt text](/QuangAnh/6.Webserver/image/image-38.png)
+![alt text](/QuangAnh/6.Webserver/image/image-37.png)
 
 ### Rocky9
 
@@ -322,7 +322,7 @@ File 1: myweb.local
 
 Dán nội dung:
 
-![alt text](image-46.png)
+![alt text](/QuangAnh/6.Webserver/image/image-46.png)
 
 Fille 2: myweb2.local
 
@@ -330,7 +330,7 @@ Fille 2: myweb2.local
 
 Dán:
 
-![alt text](image-45.png)
+![alt text](/QuangAnh/6.Webserver/image/image-45.png)
 
 `Bước 3`— Kiểm tra cấu hình và restart Nginx
 
@@ -356,9 +356,9 @@ Test
     http://myweb2.local:8080
 
 
-![alt text](image-43.png)
+![alt text](/QuangAnh/6.Webserver/image/image-43.png)
 
-![alt text](image-44.png)
+![alt text](/QuangAnh/6.Webserver/image/image-44.png)
 Cả 2 web sẽ chạy độc lập.
 
 

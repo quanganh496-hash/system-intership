@@ -31,7 +31,7 @@ Truy cập trình duyệt:
 
        http://IP-server
 
-![alt text](image-14.png)
+![alt text](/QuangAnh/6.Webserver/image/image-14.png)
 
 # ROCKY LINUX
 

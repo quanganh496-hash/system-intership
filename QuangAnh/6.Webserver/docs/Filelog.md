@@ -14,7 +14,7 @@ NGINX viết hai loại nhật ký cụ thể: Error.log và Access.log.
 
 ## Vị trí nhật ký và cấu hình
 
-![alt text](image-15.png)
+![alt text](/QuangAnh/6.Webserver/image/image-15.png)
 
 Giống như hầu hết các máy chủ web, Nginx ghi lại các hoạt động của mình một cách tỉ mỉ trong hai tệp nhật ký riêng biệt:
 
@@ -82,7 +82,7 @@ Ví dụ:
 
 Chúng ta hãy phân tích ý nghĩa của từng mã thông báo trong nhật ký:
 
-![alt text](image-16.png)
+![alt text](/QuangAnh/6.Webserver/image/image-16.png)
 
 - `172.17.0.1`: Địa chỉ IP của máy khách đã đưa ra yêu cầu.
 - `-`: Nếu sử dụng xác thực, đây là tên người dùng đã được xác thực; nếu không, đây là dấu gạch nối (-).
@@ -131,7 +131,7 @@ Trong đó:
 - Sau phần thông điệp lỗi, có thể xuất hiện các trường thông tin `client: <IP>`, `server: <tên server>`, `request: "<METHOD URI HTTP/VERSION>"`, `host: "<Host_header>"` để cung cấp ngữ cảnh về client và yêu cầu. Ví dụ: `client: 127.0.0.1, server: my-local-server.com, request: "GET /test-page.html HTTP/1.1", host: "example.com"`
 
 
-![alt text](image-17.png)
+![alt text](/QuangAnh/6.Webserver/image/image-17.png)
 
 #### 2. Ghi lỗi vào nhiều tệp
 
@@ -229,7 +229,7 @@ Thu thập dữ liệu đầy đủ để phân tích chi tiết:
 Nó sẽ ghi theo định dạng JSON, dễ đưa vào ELK, Loki, Splunk, Datadog.
 
 Thêm cấu hình sau trong block `http`:
-![alt text](image-18.png)
+![alt text](/QuangAnh/6.Webserver/image/image-18.png)
 
 
 ✅ Lợi ích:
@@ -264,7 +264,7 @@ Theo mặc định, NGINX sẽ lưu trữ tất cả nhật ký dưới dạng m
 
 Sử dụng các ví dụ và định dạng được cung cấp ở trên, tệp máy chủ ảo của bạn sẽ trông như thế này cho các tên miền duy nhất:
 
-![alt text](image-20.png)
+![alt text](/QuangAnh/6.Webserver/image/image-20.png)
 
 
 Trong ví dụ trên, bạn thấy domain1 và domain2 đều có nhật ký truy cập và lỗi riêng. Bạn cũng nhận thấy rằng bạn có tùy chọn thiết lập mức độ nghiêm trọng cho từng miền (ví dụ: cảnh báo, gỡ lỗi).

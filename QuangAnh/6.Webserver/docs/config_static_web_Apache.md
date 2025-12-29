@@ -40,9 +40,9 @@ Tạo file index:
     nano /var/www/myweb/index.html
 
 Dán vào:
-![alt text](image-7.png)
+![alt text](/QuangAnh/6.Webserver/image/image-7.png)
 
-![alt text](image-4.png)
+![alt text](/QuangAnh/6.Webserver/image/image-4.png)
 
 3. Tạo Virtual Host
 
@@ -52,7 +52,7 @@ Tạo file cấu hình cho site:
 
 Dán nội dung:
 
-![alt text](image-5.png)
+![alt text](/QuangAnh/6.Webserver/image/image-5.png)
 
 Bước 6: Kích hoạt website mywebsite và tắt site mặc định
 
@@ -132,7 +132,7 @@ Mở trình duyệt và truy cập:
 
       http://<server-ip>
 
-![alt text](image-8.png)
+![alt text](/QuangAnh/6.Webserver/image/image-8.png)
 
 ### 2. Cấu hình Web tĩnh bằng VirtualHost (nếu có nhiều website)
 
@@ -142,7 +142,7 @@ Tạo file cấu hình:
 
 Nội dung:
 
-![alt text](image-9.png)
+![alt text](/QuangAnh/6.Webserver/image/image-9.png)
 
 Tạo thư mục chứa web:
 
@@ -157,4 +157,4 @@ Mở trình duyệt và truy cập:
 
       http://<server-ip>
 
-![alt text](image-10.png)
+![alt text](/QuangAnh/6.Webserver/image/image-10.png)

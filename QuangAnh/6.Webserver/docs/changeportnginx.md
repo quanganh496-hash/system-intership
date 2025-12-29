@@ -48,4 +48,4 @@ test is successful
 
         http://IP:8080
 
-![alt text](image-25.png)
+![alt text](/QuangAnh/6.Webserver/image/image-25.png)

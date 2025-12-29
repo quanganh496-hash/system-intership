@@ -35,7 +35,7 @@ Mở file vhost:
 
        sudo ss -tulpn | grep httpd
 
-![alt text](image-11.png)
+![alt text](/QuangAnh/6.Webserver/image/image-11.png)
 
  Truy cập thử
 Ví dụ đổi sang 8080:
@@ -43,7 +43,7 @@ Truy cập:
 
      http://IP_cua_ban:8080
 
-![alt text](image-12.png)
+![alt text](/QuangAnh/6.Webserver/image/image-12.png)
 
 # Ubuntu
 
@@ -85,5 +85,5 @@ Mở trình duyệt:
 
      http://your-ip:8080
 
-![alt text](image-13.png)
+![alt text](/QuangAnh/6.Webserver/image/image-13.png)
 
