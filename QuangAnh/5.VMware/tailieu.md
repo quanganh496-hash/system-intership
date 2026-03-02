@@ -9,7 +9,7 @@ Ví dụ: Nếu mạng LAN bạn có dải 192.168.1.0/24 thì máy ảo cũng n
 
 Ví dụ: chạy server trên máy ảo để các máy khác trong LAN truy cập.
 
-![alt text](image.png)
+![alt text](/QuangAnh/5.VMware/image/image.png)
 
 Virtual Ethernet adapter trên VM sẽ kết nối đến VMnet0 switch và thông qua Virtual bridge để kết nối đến Host Ethernet adapter. Vậy nên trong trường hợp này bạn sẽ không thấy có VMnet Card nào được tạo thêm. Lúc này VM và Host sẽ cùng chung đường mạng và VM có thể nhận IP tự động từ DHCP server hoặc thiết lập thủ công. Như vậy trên đường mạng này, tương tác của máy ảo và các thành phần khác sẽ có tính 2 chiều giống như Host.
 
@@ -24,7 +24,7 @@ Ví dụ: Host có IP LAN là 192.168.1.10, máy ảo có IP 192.168.200.5 (mạ
 
 An toàn hơn so với Bridged vì cô lập hơn.
 
-![alt text](image-2.png)
+![alt text](/QuangAnh/5.VMware/image/image-2.png)
 
 Virtual Ethernet adapter trên VM sẽ kết nối đến VMnet8 switch và nhờ hỗ trợ của NAT device để kết nối đến mạng vật lý bên ngoài (nhưng các thiết bị ngoài mạng vật lý không thể chủ động khởi tạo kết nối đến máy ảo). Lúc này VM và Host sẽ cùng khác đường mạng và VM có thể nhận IP tự động từ DHCP server hoặc thiết lập thủ công. Trong trường hợp này, khi kiểm tra Network Connections trên Host, bạn sẽ thấy có thêm VMware Network Adapter VMnet8 được tạo ra.
 
@@ -38,7 +38,7 @@ Ví dụ: Host có IP 192.168.56.1 (VMware Host Adapter), VM có IP 192.168.56.1
 - **Dùng khi cần môi trường test cô lập hoàn toàn (lab, mô phỏng mạng).**
 - Tránh ảnh hưởng đến mạng thật.
 
-![alt text](image-1.png)
+![alt text](/QuangAnh/5.VMware/image/image-1.png)
 
 Virtual Ethernet adapter trên VM và Host Ethernet adapter sẽ cùng kết nối đến VMnet1 switch để tạo thành một mạng cô lập (chỉ có VM và Host giao lưu phối hợp với nhau và VM không có kết nối đến mạng vật lý bên ngoài). Lúc này VM và Host sẽ cùng chung đường mạng và VM có thể nhận IP tự động từ DHCP server hoặc thiết lập thủ công. Trong trường hợp này, khi kiểm tra Network Connections trên Host, bạn sẽ thấy có thêm VMware Network Adapter VMnet1 được tạo ra.
 
@@ -60,14 +60,14 @@ ping 8.8.8.8
 
 Nếu nhận được phản hồi, máy ảo đã kết nối internet thành công.
 
-![alt text](image-4.png)
+![alt text](/QuangAnh/5.VMware/image/image-4.png)
 
 # 5.Sử dụng chế độ card Host-only để 2 máy ảo kết nối với nhau
 Bước 1: Cấu hình card mạng Host-Only trên VMware
 
 1. virtual machine → Chọn Network Adapter → Tích chọn Host-Only 
 
-![alt text](image-5.png)
+![alt text](/QuangAnh/5.VMware/image/image-5.png)
 2. Lặp lại các bước trên Unbuntu Server.
 
 3. Kiểm tra kết nối giữa 2 máy ảo:
@@ -78,7 +78,7 @@ ping 8.8.8.8
 ```
 
 kết quả ping thành công:
-![alt text](image-6.png)
+![alt text](/QuangAnh/5.VMware/image/image-6.png)
 
 Từ Ubuntu Server ping tới CentOS 9:
 
@@ -88,7 +88,7 @@ ping 8.8.8.8
 
 Kết quả ping thành công:
 
-![alt text](image-7.png)
+![alt text](/QuangAnh/5.VMware/image/image-7.png)
 
 # 6.Sử dụng 1 card Bridged để từ máy ảo ping ra máy laptop cá nhân
 CentOS 9:
@@ -99,10 +99,10 @@ Bước 1: Cài đặt card mạng ở chế độ Bridged
 - Chọn máy ảo (CentOS 9 hoặc Ubuntu Server) →  virtual machine 
 - Chọn Network Adapter: Chọn Bridged (Directly connect to the physical network) 
 
-![alt text](image-9.png)
+![alt text](/QuangAnh/5.VMware/image/image-9.png)
 
 Bước 2:máy ảo ping ra máy laptop cá nhân
-![alt text](image-8.png)
+![alt text](/QuangAnh/5.VMware/image/image-8.png)
 
 **ping từ laptop vào máy ảo tương tự**
 
@@ -119,7 +119,7 @@ ifconfig
 ```plaintext 
 ping 192.168.3.180
 ```
-![alt text](image-10.png)
+![alt text](/QuangAnh/5.VMware/image/image-10.png)
 
 terminal hiện vậy là ping được
 

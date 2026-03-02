@@ -1,6 +1,6 @@
 # 1. Khái niệm HTTPS
 
-![alt text](/QuangAnh/HTTP/image/image-17.png)
+![alt text](/QuangAnh/2.HTTP/image/image-17.png)
 
 - HTTPS là một phần mở rộng của HTTP
 
@@ -12,14 +12,14 @@
 Việc hiểu rõ HTTPS là gì mới chỉ là bước đầu tiên. Điều quan trọng hơn là bạn phải nắm được vai trò thiết yếu của HTTPS trong thời đại số. Trước đây, HTTPS chủ yếu được áp dụng cho các trang web thương mại điện tử, ngân hàng hoặc cổng thanh toán trực tuyến. Khi mà tính bảo mật dữ liệu tài chính là ưu tiên hàng đầu. Tuy nhiên, ngày nay, việc sử dụng HTTPS đã trở thành tiêu chuẩn bắt buộc cho mọi loại website, kể cả những blog cá nhân, trang tin tức hay diễn đàn.
 Một trong những lợi ích lớn nhất khi chuyển từ HTTP sang HTTPS là đảm bảo an toàn cho người dùng. Khi sử dụng HTTPS, các thông tin như mật khẩu, số điện thoại, email hay thậm chí là hành vi duyệt web đều được mã hóa nhằm bảo vệ quyền riêng tư và ngăn chặn đánh cắp dữ liệu. Ngoài ra, trình duyệt như Google Chrome hoặc Firefox hiện đã gắn nhãn "Không an toàn" cho các website không sử dụng HTTPS, gây mất uy tín trong mắt người dùng.
 
-![alt text](/QuangAnh/HTTP/image/image-18.png)
+![alt text](/QuangAnh/2.HTTP/image/image-18.png)
 
 Không dừng lại ở đó, HTTPS còn ảnh hưởng trực tiếp đến thứ hạng tìm kiếm của website trên Google. Từ năm 2014, Google đã chính thức công bố rằng HTTPS là một yếu tố xếp hạng trong thuật toán tìm kiếm. Do đó, nếu bạn muốn tối ưu SEO cho website, việc chuyển đổi sang HTTPS là điều cực kỳ cần thiết.
 
 
 # 3. Cách hoạt động của HTTPS
 
-![alt text](/QuangAnh/HTTP/image/image-19.png)
+![alt text](/QuangAnh/2.HTTP/image/image-19.png)
 
 
 

@@ -5,7 +5,7 @@
 
 - Nó xác thực người dùng từ xa, truyền dữ liệu input từ client tới host, và relay kết quả trả về tới khách hàng. Dịch vụ được tạo ra nhằm thay thế cho trình Telnet không có mã hóa và sử dụng kỹ thuật cryptographic dẫn đến dữ liệu dễ bị đánh cắp.
 
-![alt text](./image/SSH-la-gi.webp)
+![alt text](/QuangAnh/4.SSH/image/SSH-la-gi.webp)
 
 - SSH là một giao thức bảo mật phổ biến trong lĩnh vực CNTT. Nhờ được sử dụng rộng rãi trong việc quản lý từ xa và truyền tải dữ liệu một cách an toàn, SSH đặt ra tiêu chuẩn cao về đảm bảo thông tin, ngăn chặn các rủi ro an ninh mạng.
 
@@ -54,7 +54,7 @@ SSH hỗ trợ nhiều phương thức xác thực để đảm bảo người d
 
 # 3. Các thành phần trong SSH
 
-![alt text](./image/image-11.png)
+![alt text](/QuangAnh/4.SSH/image/image-4.png)
 
 - Server : Một chương trình cho phép đi vào kết nối SSH với một bộ máy, trình bày xác thực, cấp phép, … Trong hầu hết SSH bổ sung của Unix thì server thường là sshd.
 
