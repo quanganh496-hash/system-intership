@@ -1,14 +1,73 @@
-Bắt gói tin (Packet Capture)
+# Bắt gói tin (Packet Capture)
+# 1. 1. Tổng quan
+| Công cụ       | Nền tảng              | Kiểu sử dụng    | Đối tượng                   |
+| ------------- | --------------------- | --------------- | --------------------------- |
+| **Wireshark** | macOS, Linux, Windows | GUI (đồ họa)    | Phân tích chi tiết, học tập |
+| **tcpdump**   | Linux/Unix            | CLI (dòng lệnh) | Server, SSH, debug nhanh    |
+
+👉 tcpdump: thu thập gói tin
+👉 Wireshark: phân tích sâu, trực quan
+
+# 2. Phân tích gói tin bằng Wireshark (macOS)
+## 2.1 Bắt gói tin (Packet Capture)
 1. Mở Wireshark
+
+**Nếu bị lỗi quyền (Permission Error)**
+
+Trên macOS thường gặp lỗi không capture được:
+
+    The capture session could not be initiated
+
+Cách xử lý:
+- System Settings → Privacy & Security
+- Kéo xuống → Allow Wireshark (nếu có thông báo)
+- Hoặc chạy lệnh:
+
+      sudo /Library/Application\ Support/Wireshark/ChmodBPF/ChmodBPF
+
+Sau đó mở lại Wireshark.
+
 2. Chọn Network Interface:
-- `en0` → WiFi
+- en0 → WiFi
+- en1 → Ethernet
 
-Click `Start Capturing`
+3. Click Start Capturing
 
+## 2.2 Ví dụ phân tích gói TCP (HTTP)
 
+![alt text](image-6.png)
 
+Một gói TCP gồm các lớp:
 
+    Frame
+      └── Ethernet II
+            └── IP
+                └── TCP
+                     └── HTTP
 
+![alt text](image-7.png)
+
+Tầng 2: Ethernet II
+
+Src (Nguồn): 00:0c:29:c8:21:9b (Địa chỉ MAC máy khách).
+
+Dst (Đích): Broadcast (ff:ff:ff:ff:ff:ff).
+
+Tầng 3: Internet Protocol Version 4 (IPv4)
+
+Src IP: 0.0.0.0 -> Máy khách chưa có IP.
+
+Dst IP: 255.255.255.255 -> Broadcast toàn mạng để tìm DHCP server.
+
+Tầng 4: UDP
+
+Src port: 68 -> cổng của DHCP client
+
+Dst port: 67 -> cổng của DHCP server
+
+Bootstrap Protocol (DHCP Discover)
+
+Message type: Boot Request (1) -> Gói tin từ client gửi đi → yêu cầu cấp IP.
 
 
 
@@ -110,7 +169,7 @@ Flags [.]
 
 Trên macOS Terminal:
 
-     scp root@192.168.20.26:/home/root/capture.pcap ~/Desktop/
+    scp root@192.168.20.26:/home/root/capture.pcap ~ Desktop/
 
 Sau lệnh này:
 
